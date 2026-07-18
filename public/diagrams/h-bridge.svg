@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" font-family="Menlo, Consolas, monospace">
+	<defs>
+		<marker id="flowA" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+			<path d="M0,0 L10,5 L0,10 z" fill="#b5714a" />
+		</marker>
+	</defs>
+
+	<g stroke="#8a8680" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+		<!-- battery -->
+		<path d="M110,60 V142 M110,166 V260" />
+		<path d="M92,148 H128" stroke-width="2.2" />
+		<path d="M100,160 H120" stroke-width="4" />
+		<!-- rails -->
+		<path d="M110,60 H440 M110,260 H440" />
+		<!-- left leg -->
+		<path d="M200,60 V95 M200,135 V185 M200,225 V260" />
+		<!-- right leg -->
+		<path d="M440,60 V95 M440,135 V185 M440,225 V260" />
+		<!-- motor wires -->
+		<path d="M200,160 H296 M344,160 H440" />
+		<!-- motor -->
+		<circle cx="320" cy="160" r="24" />
+		<!-- open switches: S2 (bottom left), S3 (top right) -->
+		<path d="M200,185 L217,213" />
+		<path d="M440,95 L457,123" />
+	</g>
+
+	<!-- closed switches: S1 (top left), S4 (bottom right) -->
+	<path d="M200,95 V135" stroke="#b5714a" stroke-width="2.2" stroke-linecap="round" />
+	<path d="M440,185 V225" stroke="#b5714a" stroke-width="2.2" stroke-linecap="round" />
+
+	<!-- switch contacts -->
+	<g fill="#8a8680">
+		<circle cx="200" cy="95" r="3" /><circle cx="200" cy="135" r="3" />
+		<circle cx="200" cy="185" r="3" /><circle cx="200" cy="225" r="3" />
+		<circle cx="440" cy="95" r="3" /><circle cx="440" cy="135" r="3" />
+		<circle cx="440" cy="185" r="3" /><circle cx="440" cy="225" r="3" />
+		<circle cx="200" cy="160" r="3.5" /><circle cx="440" cy="160" r="3.5" />
+	</g>
+
+	<!-- current flow arrows -->
+	<g stroke="#b5714a" stroke-width="1.8" fill="none">
+		<path d="M148,60 H175" marker-end="url(#flowA)" />
+		<path d="M240,160 H268" marker-end="url(#flowA)" />
+		<path d="M440,234 V250" marker-end="url(#flowA)" />
+		<path d="M302,260 H274" marker-end="url(#flowA)" />
+	</g>
+
+	<g fill="#8a8680" font-size="13">
+		<text x="80" y="153">+</text>
+		<text x="80" y="169">−</text>
+		<text x="176" y="120" text-anchor="end">S1</text>
+		<text x="176" y="210" text-anchor="end">S2</text>
+		<text x="464" y="120">S3</text>
+		<text x="464" y="210">S4</text>
+		<text x="320" y="166" text-anchor="middle" font-size="15">M</text>
+	</g>
+</svg>

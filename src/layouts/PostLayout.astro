@@ -1,0 +1,230 @@
+---
+import type { MarkdownHeading } from 'astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+	post: CollectionEntry<'blog'>;
+	headings?: MarkdownHeading[];
+}
+
+const { post, headings = [] } = Astro.props;
+const { title, description, pubDate, series } = post.data;
+
+const formattedDate = new Intl.DateTimeFormat('en-GB', {
+	day: 'numeric',
+	month: 'long',
+	year: 'numeric',
+	timeZone: 'UTC', // frontmatter dates parse as UTC midnight
+}).format(pubDate);
+
+const words = (post.body ?? '').split(/\s+/).filter(Boolean).length;
+const readingTime = Math.max(1, Math.round(words / 220));
+
+const allPosts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+const currentIndex = allPosts.findIndex((p) => p.id === post.id);
+const newer = currentIndex > 0 ? allPosts[currentIndex - 1] : undefined;
+const older =
+	currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : undefined;
+
+const seriesPosts = series
+	? allPosts
+			.filter((p) => p.data.series?.name === series.name)
+			.sort((a, b) => (a.data.series?.part ?? 0) - (b.data.series?.part ?? 0))
+	: [];
+
+const tocHeadings = headings.filter((heading) => heading.depth <= 3);
+const showToc = tocHeadings.length >= 4;
+---
+
+<BaseLayout title={title} description={description}>
+	<div class="post-grid">
+		<article>
+			<header class="post-header">
+				<a class="back-link" href="/">← All writing</a>
+				<h1>{title}</h1>
+				<p class="lede">{description}</p>
+				<p class="meta" style="padding-bottom: 1.25rem;">
+					{formattedDate} · {readingTime} min read
+				</p>
+			</header>
+
+			{
+				series && seriesPosts.length > 1 && (
+					<details class="disclosure series-box">
+						<summary>
+							{series.name} · Part {series.part} of {seriesPosts.length}
+						</summary>
+						<ol>
+							{seriesPosts.map((p) =>
+								p.id === post.id ? (
+									<li aria-current="page">
+										<span>{p.data.title}</span>
+									</li>
+								) : (
+									<li>
+										<a href={`/blog/${p.id}/`}>{p.data.title}</a>
+									</li>
+								)
+							)}
+						</ol>
+					</details>
+				)
+			}
+
+			{
+				showToc && (
+					<details class="disclosure toc">
+						<summary>Contents</summary>
+						<ul>
+							{tocHeadings.map((heading) => (
+								<li class={heading.depth === 3 ? 'toc-sub' : undefined}>
+									<a href={`#${heading.slug}`}>{heading.text}</a>
+								</li>
+							))}
+						</ul>
+					</details>
+				)
+			}
+
+			<div class="prose">
+				<slot />
+			</div>
+
+			<nav class="post-nav" aria-label="Adjacent posts">
+				{
+					older ? (
+						<a class="post-nav-link" rel="prev" href={`/blog/${older.id}/`}>
+							<span class="meta">← Older</span>
+							<span class="post-nav-title">{older.data.title}</span>
+						</a>
+					) : (
+						<span />
+					)
+				}
+				{
+					newer ? (
+						<a
+							class="post-nav-link post-nav-next"
+							rel="next"
+							href={`/blog/${newer.id}/`}
+						>
+							<span class="meta">Newer →</span>
+							<span class="post-nav-title">{newer.data.title}</span>
+						</a>
+					) : (
+						<span />
+					)
+				}
+			</nav>
+		</article>
+
+		{
+			showToc && (
+				<aside class="toc-side" aria-label="Table of contents">
+					<div class="toc-side-inner">
+						<p class="toc-label meta">On this page</p>
+						<ul>
+							{tocHeadings.map((heading) => (
+								<li class={heading.depth === 3 ? 'toc-sub' : undefined}>
+									<a href={`#${heading.slug}`}>{heading.text}</a>
+								</li>
+							))}
+						</ul>
+					</div>
+				</aside>
+			)
+		}
+	</div>
+
+	<script>
+		// Add a language label and copy button to every code block
+		for (const pre of document.querySelectorAll<HTMLPreElement>('pre.astro-code')) {
+			const wrapper = document.createElement('div');
+			wrapper.className = 'code-block';
+			pre.replaceWith(wrapper);
+			wrapper.appendChild(pre);
+
+			const bar = document.createElement('div');
+			bar.className = 'code-bar';
+
+			const lang = pre.dataset.language;
+			if (lang && lang !== 'plaintext' && lang !== 'text') {
+				const label = document.createElement('span');
+				label.className = 'code-lang';
+				label.textContent = lang;
+				bar.appendChild(label);
+			}
+
+			const button = document.createElement('button');
+			button.className = 'code-copy';
+			button.type = 'button';
+			button.textContent = 'copy';
+			button.addEventListener('click', async () => {
+				const text = pre.innerText;
+				try {
+					await navigator.clipboard.writeText(text);
+				} catch {
+					// Fallback for contexts where the async clipboard API is unavailable
+					const scratch = document.createElement('textarea');
+					scratch.value = text;
+					scratch.style.position = 'fixed';
+					scratch.style.opacity = '0';
+					document.body.appendChild(scratch);
+					scratch.select();
+					document.execCommand('copy');
+					scratch.remove();
+				}
+				button.textContent = 'copied';
+				setTimeout(() => (button.textContent = 'copy'), 2000);
+			});
+			bar.appendChild(button);
+
+			wrapper.appendChild(bar);
+		}
+
+		// Scroll-spy: highlight the sidebar TOC entry for the section in view
+		const tocSide = document.querySelector('.toc-side');
+		if (tocSide) {
+			const linkByHeading = new Map<HTMLElement, HTMLAnchorElement>();
+			for (const link of tocSide.querySelectorAll<HTMLAnchorElement>('a[href^="#"]')) {
+				const heading = document.getElementById(
+					decodeURIComponent(link.hash.slice(1))
+				);
+				if (heading) linkByHeading.set(heading, link);
+			}
+			const headings = [...linkByHeading.keys()];
+			let activeLink: HTMLAnchorElement | null = null;
+			let ticking = false;
+
+			const update = () => {
+				ticking = false;
+				const line = window.innerHeight * 0.28;
+				let current: HTMLElement | null = null;
+				for (const heading of headings) {
+					if (heading.getBoundingClientRect().top <= line) current = heading;
+					else break;
+				}
+				const link = current ? (linkByHeading.get(current) ?? null) : null;
+				if (link === activeLink) return;
+				activeLink?.classList.remove('is-active');
+				link?.classList.add('is-active');
+				activeLink = link;
+			};
+
+			document.addEventListener(
+				'scroll',
+				() => {
+					if (!ticking) {
+						ticking = true;
+						requestAnimationFrame(update);
+					}
+				},
+				{ passive: true }
+			);
+			update();
+		}
+	</script>
+</BaseLayout>

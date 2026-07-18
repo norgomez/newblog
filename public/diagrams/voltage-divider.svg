@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" font-family="Menlo, Consolas, monospace">
+	<defs>
+		<marker id="arr" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+			<path d="M0,0 L10,5 L0,10 z" fill="#8a8680" />
+		</marker>
+		<marker id="arrA" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+			<path d="M0,0 L10,5 L0,10 z" fill="#b5714a" />
+		</marker>
+	</defs>
+
+	<g stroke="#8a8680" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+		<!-- top feed -->
+		<path d="M190,50 V70" />
+		<!-- LDR zigzag -->
+		<path d="M190,70 v8 l9,5 l-18,10 l18,10 l-18,10 l18,10 l-9,5 v8" />
+		<!-- middle wire -->
+		<path d="M190,136 V192" />
+		<!-- lower resistor -->
+		<path d="M190,192 v8 l9,5 l-18,10 l18,10 l-18,10 l18,10 l-9,5 v8" />
+		<!-- to ground -->
+		<path d="M190,258 V272" />
+		<!-- ground symbol -->
+		<path d="M172,272 H208 M179,279 H201 M186,286 H194" />
+		<!-- light arrows -->
+		<path d="M125,72 L166,95" marker-end="url(#arr)" />
+		<path d="M117,94 L158,117" marker-end="url(#arr)" />
+	</g>
+
+	<!-- tap to A0 -->
+	<circle cx="190" cy="170" r="4" fill="#b5714a" />
+	<path d="M196,170 H300" stroke="#b5714a" stroke-width="1.8" fill="none" marker-end="url(#arrA)" />
+
+	<g fill="#8a8680" font-size="13">
+		<text x="190" y="40" text-anchor="middle">5 V</text>
+		<text x="225" y="107">LDR (photoresistor)</text>
+		<text x="225" y="229">10 kΩ</text>
+		<text x="222" y="286" font-size="11">GND</text>
+		<text x="360" y="160">bright light → A0 near 1023</text>
+		<text x="360" y="184">darkness    → A0 near 0</text>
+	</g>
+	<text x="312" y="175" fill="#b5714a" font-size="13">to A0</text>
+</svg>
