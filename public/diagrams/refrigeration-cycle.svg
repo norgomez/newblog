@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" font-family="Menlo, Consolas, monospace">
+	<defs>
+		<marker id="rarr" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+			<path d="M0,0 L10,5 L0,10 z" fill="#8a8680" />
+		</marker>
+		<marker id="rarrA" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+			<path d="M0,0 L10,5 L0,10 z" fill="#b5714a" />
+		</marker>
+	</defs>
+
+	<!-- component boxes -->
+	<g stroke="#8a8680" stroke-width="1.6" fill="none">
+		<rect x="100" y="125" width="130" height="70" rx="6" />
+		<rect x="255" y="30" width="130" height="60" rx="6" />
+		<rect x="450" y="125" width="130" height="70" rx="6" />
+		<rect x="255" y="230" width="130" height="60" rx="6" />
+	</g>
+
+	<!-- cold, low-pressure side -->
+	<g stroke="#8a8680" stroke-width="1.8" fill="none" stroke-linejoin="round">
+		<path d="M165,125 V60 H249" marker-end="url(#rarr)" />
+		<path d="M255,260 H165 V201" marker-end="url(#rarr)" />
+	</g>
+
+	<!-- hot, high-pressure side -->
+	<g stroke="#b5714a" stroke-width="1.8" fill="none" stroke-linejoin="round">
+		<path d="M385,60 H515 V119" marker-end="url(#rarrA)" />
+		<path d="M515,195 V260 H391" marker-end="url(#rarrA)" />
+	</g>
+
+	<!-- heat flowing in from the room -->
+	<g stroke="#8a8680" stroke-width="1.6" fill="none">
+		<path d="M30,140 H92" marker-end="url(#rarr)" />
+		<path d="M30,160 H92" marker-end="url(#rarr)" />
+		<path d="M30,180 H92" marker-end="url(#rarr)" />
+	</g>
+
+	<!-- heat dumped outdoors -->
+	<g stroke="#b5714a" stroke-width="1.6" fill="none">
+		<path d="M588,140 H632" marker-end="url(#rarrA)" />
+		<path d="M588,160 H632" marker-end="url(#rarrA)" />
+		<path d="M588,180 H632" marker-end="url(#rarrA)" />
+	</g>
+
+	<g fill="#8a8680" font-size="13" text-anchor="middle">
+		<text x="165" y="155">evaporator</text>
+		<text x="320" y="57">compressor</text>
+		<text x="515" y="155">condenser</text>
+		<text x="320" y="257">expansion valve</text>
+	</g>
+
+	<g fill="#8a8680" font-size="10.5" text-anchor="middle">
+		<text x="165" y="173">cold coil · inside</text>
+		<text x="320" y="75">the part that hums</text>
+		<text x="515" y="173">hot coil · outside</text>
+		<text x="320" y="275">pressure drops</text>
+		<text x="200" y="50">cool vapor</text>
+		<text x="207" y="278">cold mist</text>
+	</g>
+
+	<g font-size="10.5" text-anchor="middle" fill="#b5714a">
+		<text x="450" y="50">hot vapor</text>
+		<text x="450" y="278">warm liquid</text>
+	</g>
+
+	<g font-size="11" fill="#8a8680">
+		<text x="30" y="122">room heat</text>
+		<text x="30" y="312">INSIDE</text>
+	</g>
+	<g font-size="11" text-anchor="end">
+		<text x="632" y="122" fill="#b5714a">heat out</text>
+		<text x="632" y="312" fill="#8a8680">OUTSIDE</text>
+	</g>
+</svg>

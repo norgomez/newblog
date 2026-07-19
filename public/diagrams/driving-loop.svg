@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" font-family="Menlo, Consolas, monospace">
+	<defs>
+		<marker id="darr" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+			<path d="M0,0 L10,5 L0,10 z" fill="#8a8680" />
+		</marker>
+		<marker id="darrA" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+			<path d="M0,0 L10,5 L0,10 z" fill="#b5714a" />
+		</marker>
+	</defs>
+
+	<g stroke="#8a8680" stroke-width="1.6" fill="none" stroke-linejoin="round">
+		<!-- intended path in -->
+		<path d="M20,140 H104" marker-end="url(#darr)" />
+		<!-- comparison node -->
+		<circle cx="124" cy="140" r="14" />
+		<path d="M138,140 H162" marker-end="url(#darr)" />
+		<!-- controller -->
+		<rect x="168" y="110" width="130" height="60" rx="6" />
+		<path d="M298,140 H322" marker-end="url(#darr)" />
+		<!-- actuators -->
+		<rect x="328" y="110" width="150" height="60" rx="6" />
+		<path d="M478,140 H502" marker-end="url(#darr)" />
+		<!-- the car -->
+		<rect x="508" y="110" width="112" height="60" rx="6" />
+	</g>
+
+	<!-- feedback -->
+	<circle cx="564" cy="170" r="3.5" fill="#b5714a" />
+	<path d="M564,172 V226 H124 V160" stroke="#b5714a" stroke-width="1.6" fill="none" stroke-linejoin="round" marker-end="url(#darrA)" />
+
+	<g fill="#8a8680" font-size="13" text-anchor="middle">
+		<text x="233" y="137">driver</text>
+		<text x="403" y="137">actuators</text>
+		<text x="564" y="137">the car</text>
+	</g>
+
+	<g fill="#8a8680" font-size="10.5" text-anchor="middle">
+		<text x="233" y="155">(or computer)</text>
+		<text x="403" y="155">steering · throttle · brakes</text>
+		<text x="564" y="155">on the road</text>
+	</g>
+
+	<g fill="#8a8680" font-size="11">
+		<text x="20" y="126">intended path</text>
+		<text x="101" y="130">+</text>
+		<text x="138" y="176">−</text>
+	</g>
+
+	<text x="344" y="218" text-anchor="middle" fill="#b5714a" font-size="11">eyes · cameras · sensors</text>
+</svg>

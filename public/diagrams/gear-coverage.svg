@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" font-family="Menlo, Consolas, monospace">
+	<defs>
+		<marker id="garr" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+			<path d="M0,0 L10,5 L0,10 z" fill="#8a8680" />
+		</marker>
+	</defs>
+
+	<!-- axes -->
+	<g stroke="#8a8680" stroke-width="1.4" fill="none">
+		<path d="M60,40 V270 H600" marker-start="url(#garr)" />
+	</g>
+	<path d="M594,270 H600" stroke="#8a8680" stroke-width="1.4" marker-end="url(#garr)" fill="none" />
+
+	<!-- idle and redline -->
+	<g stroke="#8a8680" stroke-width="1" stroke-dasharray="4 4" opacity="0.5" fill="none">
+		<path d="M60,70 H600" />
+		<path d="M60,240 H600" />
+	</g>
+
+	<!-- gear lines -->
+	<g stroke="#8a8680" stroke-width="1.4" fill="none">
+		<path d="M60,270 L150,70" />
+		<path d="M60,270 L255,70" />
+		<path d="M60,270 L370,70" />
+		<path d="M60,270 L490,70" />
+		<path d="M60,270 L600,100" />
+	</g>
+
+	<!-- the shift path -->
+	<path
+		d="M60,270 L141,90 V187 L240,85 V154 L355,80 V133 L490,70 V135 L600,100"
+		stroke="#b5714a" stroke-width="1.8" fill="none" stroke-linejoin="round"
+	/>
+
+	<g fill="#8a8680" font-size="11" text-anchor="middle">
+		<text x="150" y="60">1</text>
+		<text x="255" y="60">2</text>
+		<text x="370" y="60">3</text>
+		<text x="490" y="60">4</text>
+		<text x="596" y="92">5</text>
+	</g>
+
+	<g fill="#8a8680" font-size="11">
+		<text x="66" y="34">engine rpm</text>
+		<text x="56" y="74" text-anchor="end">redline</text>
+		<text x="56" y="244" text-anchor="end">idle</text>
+		<text x="600" y="292" text-anchor="end">road speed</text>
+	</g>
+
+	<text x="152" y="142" fill="#b5714a" font-size="10.5">shift</text>
+</svg>

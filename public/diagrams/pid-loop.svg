@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" font-family="Menlo, Consolas, monospace">
+	<defs>
+		<marker id="parr" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+			<path d="M0,0 L10,5 L0,10 z" fill="#8a8680" />
+		</marker>
+		<marker id="parrA" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+			<path d="M0,0 L10,5 L0,10 z" fill="#b5714a" />
+		</marker>
+	</defs>
+
+	<g stroke="#8a8680" stroke-width="1.6" fill="none" stroke-linejoin="round">
+		<!-- setpoint in -->
+		<path d="M24,150 H118" marker-end="url(#parr)" />
+		<!-- error node -->
+		<circle cx="138" cy="150" r="14" />
+		<!-- error out, branch to P I D -->
+		<path d="M152,150 H176 M176,80 V220" />
+		<path d="M176,80 H194" marker-end="url(#parr)" />
+		<path d="M176,150 H194" marker-end="url(#parr)" />
+		<path d="M176,220 H194" marker-end="url(#parr)" />
+		<!-- P I D boxes -->
+		<rect x="200" y="62" width="64" height="36" rx="6" />
+		<rect x="200" y="132" width="64" height="36" rx="6" />
+		<rect x="200" y="202" width="64" height="36" rx="6" />
+		<!-- into the sum -->
+		<path d="M264,80 H330 V128" marker-end="url(#parr)" />
+		<path d="M264,150 H308" marker-end="url(#parr)" />
+		<path d="M264,220 H330 V172" marker-end="url(#parr)" />
+		<circle cx="330" cy="150" r="16" />
+		<!-- sum to system -->
+		<path d="M346,150 H382" marker-end="url(#parr)" />
+		<rect x="388" y="126" width="178" height="48" rx="6" />
+		<!-- output -->
+		<path d="M566,150 H618" marker-end="url(#parr)" />
+	</g>
+
+	<!-- feedback path -->
+	<circle cx="592" cy="150" r="3.5" fill="#b5714a" />
+	<path d="M592,152 V252 H138 V170" stroke="#b5714a" stroke-width="1.6" fill="none" stroke-linejoin="round" marker-end="url(#parrA)" />
+
+	<g fill="#8a8680" font-size="13">
+		<text x="24" y="138">setpoint</text>
+		<text x="614" y="138" text-anchor="end">output</text>
+		<text x="232" y="85" text-anchor="middle">P</text>
+		<text x="232" y="155" text-anchor="middle">I</text>
+		<text x="232" y="225" text-anchor="middle">D</text>
+		<text x="330" y="155" text-anchor="middle">Σ</text>
+		<text x="477" y="147" text-anchor="middle">the system</text>
+	</g>
+	<g fill="#8a8680" font-size="10.5">
+		<text x="477" y="164" text-anchor="middle">(motor · heater · drone)</text>
+		<text x="115" y="141">+</text>
+		<text x="152" y="184">−</text>
+	</g>
+	<text x="365" y="244" text-anchor="middle" fill="#b5714a" font-size="11">sensor reading</text>
+</svg>
