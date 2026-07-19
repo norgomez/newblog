@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 260" font-family="Menlo, Consolas, monospace">
+	<defs>
+		<marker id="carr" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+			<path d="M0,0 L10,5 L0,10 z" fill="#8a8680" />
+		</marker>
+	</defs>
+
+	<!-- left: parallel runs -->
+	<path d="M40,70 H300" stroke="#b5714a" stroke-width="3" stroke-linecap="round" fill="none" />
+	<path d="M40,170 H300" stroke="#8a8680" stroke-width="2" stroke-linecap="round" fill="none" />
+
+	<!-- separation arrow -->
+	<path d="M170,82 V158" stroke="#8a8680" stroke-width="1.2" fill="none" marker-start="url(#carr)" marker-end="url(#carr)" />
+
+	<g fill="#8a8680" font-size="11">
+		<text x="40" y="56" fill="#b5714a">mains (radiator)</text>
+		<text x="40" y="192">data (antenna)</text>
+		<text x="182" y="124">≥ 300 mm</text>
+		<text x="40" y="232">parallel: keep your distance</text>
+	</g>
+
+	<!-- right: 90° crossing -->
+	<path d="M390,120 H620" stroke="#b5714a" stroke-width="3" stroke-linecap="round" fill="none" />
+	<path d="M505,30 V105 M505,135 V210" stroke="#8a8680" stroke-width="2" stroke-linecap="round" fill="none" />
+	<path d="M505,105 A15,15 0 0 1 505,135" stroke="#8a8680" stroke-width="2" fill="none" />
+
+	<g fill="#8a8680" font-size="11">
+		<text x="524" y="48">data</text>
+		<text x="390" y="106" fill="#b5714a">mains</text>
+		<text x="390" y="232">crossing at 90°: fine</text>
+	</g>
+</svg>
