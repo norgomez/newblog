@@ -2,6 +2,9 @@
 title: 'From Combustion to Contact Patch: The Mechanical Systems That Move Your Car'
 description: 'The control loops get the glory, but they are only issuing orders — here is the machinery that actually obeys, from burning fuel to four patches of rubber.'
 pubDate: 2026-07-23
+series:
+  name: 'Under the Hood'
+  part: 2
 ---
 
 The [last post](/blog/the-loops-that-drive-your-car/) toured the feedback loops that drive a car — the nervous system. But a nervous system moves nothing by itself. Every loop terminates in machinery: metal that burns, spins, multiplies, and grips. This post follows the force — from a spark in a cylinder to the road surface — through the mechanical systems a car cannot run without.

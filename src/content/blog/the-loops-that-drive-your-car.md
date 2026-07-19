@@ -2,6 +2,9 @@
 title: 'The Loops That Drive Your Car'
 description: 'Driving is not a skill so much as a feedback loop — and under the hood, your car is running dozens more of them, some a thousand times faster than you.'
 pubDate: 2026-07-22
+series:
+  name: 'Under the Hood'
+  part: 1
 ---
 
 Watch a car "driving straight" on the highway from above and you'll see it isn't. It's drifting a few centimeters left, being corrected, drifting right, being corrected — a gentle, endless oscillation around the lane center. Nobody drives straight. Drivers *continuously correct*, and the correction happens so automatically you don't notice you're doing it.

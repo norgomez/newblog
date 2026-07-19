@@ -2,6 +2,9 @@
 title: 'What a Transmission Actually Does (and Why Cars Cannot Live Without One)'
 description: 'It is not just a box of gears — it is a translator between an engine that only speaks one narrow dialect and a road that demands everything.'
 pubDate: 2026-07-26
+series:
+  name: 'Under the Hood'
+  part: 5
 ---
 
 Ask what a transmission does and you'll usually hear "it changes gears" — which is true the way "a kitchen changes food" is true. It describes the activity and misses the point entirely.

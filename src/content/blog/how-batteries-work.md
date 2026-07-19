@@ -2,6 +2,9 @@
 title: 'Batteries: Why They Work and Why They Die'
 description: 'A battery is a chemical reaction that desperately wants to happen, held apart — with the electrons forced to commute through your device.'
 pubDate: 2026-07-25
+series:
+  name: 'Under the Hood'
+  part: 4
 ---
 
 A battery doesn't store electricity. There are no volts sloshing around in a tank. What a battery stores is a **chemical argument**: two materials that badly want to react with each other, deliberately kept apart — with exactly one path between them, routed through your phone.

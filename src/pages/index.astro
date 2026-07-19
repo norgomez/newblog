@@ -7,9 +7,40 @@ import { SITE_DESCRIPTION } from '../consts';
 const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
+
+const seriesBlurbs: Record<string, string> = {
+	'Maker Basics':
+		'Electronics from first principles — electricity, communication, microcontrollers, sensing, motion, and making things.',
+	'Under the Hood':
+		'How cars actually work — the control loops, the machinery, and why electric drivetrains delete half of it.',
+};
+
+const seriesCards = Object.entries(seriesBlurbs).map(([name, blurb]) => {
+	const parts = posts
+		.filter((post) => post.data.series?.name === name)
+		.sort((a, b) => (a.data.series?.part ?? 0) - (b.data.series?.part ?? 0));
+	return { name, blurb, count: parts.length, first: parts[0] };
+});
 ---
 
 <BaseLayout>
 	<p class="intro">{SITE_DESCRIPTION}</p>
+
+	<section class="start-here">
+		<p class="meta">Start here</p>
+		<div class="series-cards">
+			{
+				seriesCards.map(({ name, blurb, count, first }) => (
+					<a class="series-card" href={`/blog/${first.id}/`}>
+						<span class="series-card-title">{name}</span>
+						<span class="series-card-blurb">{blurb}</span>
+						<span class="meta">{count} parts · begin with part 1 →</span>
+					</a>
+				))
+			}
+		</div>
+	</section>
+
+	<p class="meta section-label">All writing</p>
 	<PostList posts={posts} />
 </BaseLayout>

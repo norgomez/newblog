@@ -2,6 +2,9 @@
 title: 'How Electric Motors Work: Magnets, Current, and the Chase'
 description: 'One physical fact — a wire in a magnetic field feels a push — and a century of clever geometry for turning that push into spin.'
 pubDate: 2026-07-24
+series:
+  name: 'Under the Hood'
+  part: 3
 ---
 
 Count the motors around you right now. The fan in your laptop, the vibration in your phone, the compressor in your [air conditioner](/blog/how-air-conditioning-works/), a modern car's several dozen — window lifts, seat adjusters, pumps, and possibly the thing that drives it down the road. The electric motor is the most numerous machine ever built, and compared to the [combustion engine](/blog/mechanical-systems-that-move-your-car/) — pistons, valves, oil film, cooling jackets — it's almost insultingly simple: one moving part.

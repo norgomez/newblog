@@ -193,6 +193,67 @@ main.container {
 	border-bottom: 1px solid var(--rule);
 }
 
+/* "Start here" series cards on the homepage */
+.start-here {
+	padding-top: 2rem;
+}
+
+.series-cards {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1rem;
+	margin-top: 0.9rem;
+}
+
+@media (max-width: 34rem) {
+	.series-cards {
+		grid-template-columns: 1fr;
+	}
+}
+
+.series-card {
+	display: block;
+	border: 1px solid var(--rule);
+	border-radius: 8px;
+	padding: 1.1rem 1.25rem;
+	text-decoration: none;
+	color: inherit;
+	transition: border-color 0.15s ease;
+}
+
+.series-card:hover {
+	border-color: var(--accent);
+}
+
+.series-card-title {
+	display: block;
+	font-size: 1.125rem;
+	font-weight: 550;
+	letter-spacing: -0.01em;
+}
+
+.series-card-blurb {
+	display: block;
+	font-size: 0.92rem;
+	line-height: 1.55;
+	color: var(--ink-secondary);
+	margin-top: 0.4rem;
+}
+
+.series-card .meta {
+	display: block;
+	margin-top: 0.85rem;
+	transition: color 0.15s ease;
+}
+
+.series-card:hover .meta {
+	color: var(--accent);
+}
+
+.section-label {
+	margin-top: 2.5rem;
+}
+
 .post-list {
 	list-style: none;
 	padding: 0;
@@ -235,6 +296,27 @@ main.container {
 		grid-template-columns: 1fr;
 		gap: 0.375rem;
 	}
+}
+
+/* 404 page */
+.notfound {
+	padding-block: 3.5rem;
+}
+
+.notfound h1 {
+	font-size: 2rem;
+	font-weight: 500;
+	letter-spacing: -0.02em;
+	margin-block: 0.75rem 1rem;
+}
+
+.notfound p {
+	color: var(--ink-secondary);
+	max-width: 34rem;
+}
+
+.notfound p + p {
+	margin-top: 1.75rem;
 }
 
 /* ------------------------------------------------------------------
