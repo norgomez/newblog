@@ -1,7 +1,7 @@
 ---
 title: 'Sensors: How Your Projects Learn to See, Hear, and Feel'
 description: 'Every sensor is a translator from physics to numbers — here is how to read them, and how to handle the fact that they all lie a little.'
-pubDate: 2026-07-13
+pubDate: 2026-07-15
 series:
   name: 'Maker Basics'
   part: 4
