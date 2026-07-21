@@ -27,9 +27,9 @@ analogWrite(9, 40);  // gentle crawl
 
 Despite the name, `analogWrite` outputs no in-between voltage — just fast pulses. The motor's inertia (or your eye, for an LED) does the averaging.
 
-<figure>
+<figure class="diagram-live" data-diagram="pwm">
 	<img src="/diagrams/pwm-duty-cycle.svg" alt="Three square waveforms at 25, 50, and 75 percent duty cycle, each with a dashed line marking the average voltage level" width="640" height="300" loading="lazy" />
-	<figcaption>Three duty cycles. The switching is far too fast to perceive — what the motor (or your eye) responds to is the average, shown dashed.</figcaption>
+	<figcaption>Drag the duty cycle: the switching is far too fast to perceive — what the motor (or your eye) responds to is the average, shown dashed.</figcaption>
 </figure>
 
 ## The cast of characters

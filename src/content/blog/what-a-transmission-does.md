@@ -23,9 +23,9 @@ Why not one fixed ratio? Because any single choice is a bad compromise. Gear it 
 
 Plot engine RPM against road speed and each gear is a straight line — a fixed exchange rate between the two. The engine's usable band (idle to redline) means each line only covers one *slice* of road speed. Multiple gears tile the slices so that, at any speed, some gear can put the engine inside its happy band:
 
-<figure>
+<figure class="diagram-live" data-diagram="gear">
 	<img src="/diagrams/gear-coverage.svg" alt="Chart of engine RPM versus road speed: five gear lines of decreasing steepness, each usable between idle and redline, with the accented shift path sawtoothing up through the gears" width="640" height="320" loading="lazy" />
-	<figcaption>Each gear is a fixed exchange rate between engine and road speed. Accelerating is climbing one line to redline, then hopping down to the next — the sawtooth is what you hear as an engine "running up through the gears."</figcaption>
+	<figcaption>Scrub the road speed and watch the gearbox choose: each gear is a fixed exchange rate between engine and road speed, and the job is keeping the engine in its happy band as speed changes.</figcaption>
 </figure>
 
 That sawtooth is the sound signature of every accelerating car you've ever heard: rise, drop, rise, drop. Each drop is the translator switching dictionaries.

@@ -5,6 +5,10 @@ pubDate: 2026-07-28
 series:
   name: 'Maker Basics'
   part: 7
+project:
+  cover: /images/gantry/gantry.jpg
+  blurb: A two-axis automated pick-and-place machine built from a salvaged 3D printer — industrial control panel, servo gripper, and Arduino state-machine firmware.
+  stack: [Arduino, 'C++', 3D printing, Steppers, Control panel]
 ---
 
 The [Maker Basics series](/blog/how-electricity-actually-works/) ended with a claim: electricity, communication, a microcontroller, sensors, actuators, and 3D printing — *"that's the whole toolkit; the rest is what you choose to build with it."* This post is me putting that claim to the test, because my mechatronics final project used every single part of it.

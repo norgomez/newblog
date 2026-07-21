@@ -88,6 +88,13 @@ The gains `Kp`, `Ki`, `Kd` are where the craft lives. Formal methods exist (Zieg
 2. Add a little `Kd` to calm the overshoot.
 3. Add the smallest `Ki` that erases the steady-state gap.
 
+Rather than take my word for it, tune it yourself. The plant below is a load the controller must hold at the setpoint against a constant pull — drag the gains and watch the response:
+
+<figure class="diagram-live" data-diagram="pid">
+	<p class="idiagram-fallback"><em>Enable JavaScript to explore the PID response interactively.</em></p>
+	<figcaption>Start with only Kp and you'll see it settle <em>below</em> the setpoint (that's the steady-state error). Add Kd to tame the overshoot, then a small Ki to close the gap. Push Kp too far and it oscillates.</figcaption>
+</figure>
+
 Watch a first-person-view drone pilot describe a badly tuned quad as "floaty" or "twitchy" and you now know exactly which gain they're complaining about.
 
 ---

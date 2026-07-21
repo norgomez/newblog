@@ -2,6 +2,10 @@
 title: 'Project: Teaching a Computer to See Shapes — No Neural Networks Allowed'
 description: 'A 1987 theory of human vision, a watershed algorithm, and four classification rules — plus the rotated square that humbled all of them.'
 pubDate: 2026-07-29
+project:
+  cover: /images/rbc/labeled-blocks.jpg
+  blurb: A classical computer-vision pipeline that finds and classifies 2D shapes with no neural networks — HSV preprocessing, watershed segmentation, and rule-based geometry.
+  stack: [MATLAB, Computer vision, Image processing, Watershed]
 ---
 
 How hard can it be to tell a square from a triangle? Every neural network demo treats shape recognition as a solved warm-up. So for my robotics coursework I did it the hard way — the *pre-deep-learning* way: no training data, no learned features, just geometry, thresholds, and MATLAB. The assignment: build a complete vision pipeline that finds and labels circles, squares, triangles, and rectangles in real photographs.

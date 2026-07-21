@@ -1,0 +1,50 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const projects = (
+	await getCollection('blog', ({ data }) => !data.draft && data.project)
+).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout
+	title="Projects"
+	description="Things I've built — hardware, software, and the write-ups behind them."
+>
+	<header class="page-header">
+		<h1>Projects</h1>
+		<p class="meta">{projects.length} builds</p>
+	</header>
+
+	<p class="intro" style="border-bottom: 0; padding-bottom: 0.5rem;">
+		Things I've actually built — each with a full write-up of how it works and
+		what broke along the way.
+	</p>
+
+	<ul class="project-grid">
+		{
+			projects.map((post) => (
+				<li>
+					<a class="project-card" href={`/blog/${post.id}/`}>
+						<div class="project-cover">
+							<img
+								src={post.data.project!.cover}
+								alt={post.data.title}
+								loading="lazy"
+							/>
+						</div>
+						<div class="project-body">
+							<h2 class="project-name">{post.data.title}</h2>
+							<p class="project-blurb">{post.data.project!.blurb}</p>
+							<ul class="project-stack">
+								{post.data.project!.stack.map((tech) => (
+									<li>{tech}</li>
+								))}
+							</ul>
+						</div>
+					</a>
+				</li>
+			))
+		}
+	</ul>
+</BaseLayout>
