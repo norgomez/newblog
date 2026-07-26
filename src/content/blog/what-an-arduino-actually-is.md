@@ -1,7 +1,7 @@
 ---
 title: 'What an Arduino Actually Is (and Why Engineers Love It)'
 description: 'A microcontroller is not a small computer — understanding the difference is the key to everything you will build with one.'
-pubDate: 2026-07-12
+pubDate: 2026-07-14
 series:
   name: 'Maker Basics'
   part: 3

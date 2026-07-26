@@ -1,7 +1,7 @@
 ---
 title: 'Data Communications: How Machines Actually Talk'
 description: 'From a voltage on a wire to bits, frames, and protocols — the same handful of ideas runs everything from I2C to the internet.'
-pubDate: 2026-07-17
+pubDate: 2026-07-13
 series:
   name: 'Maker Basics'
   part: 2

@@ -1,7 +1,7 @@
 ---
 title: 'How Generators Work: Where Every Watt Comes From'
 description: 'Move a wire through a magnetic field and a voltage appears — the single fact behind almost every watt you have ever used, and why drawing power makes the engine work harder.'
-pubDate: 2026-07-21
+pubDate: 2026-08-02
 ---
 
 Almost every watt of electricity you have ever used came out of a spinning magnet. The grid that lights your house, the system that keeps your car's battery topped up, the roaring box someone rolls out during a blackout — all the same machine, at wildly different sizes. Batteries and solar panels are the honorable exceptions; everything else is a magnet going around and around.
