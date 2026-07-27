@@ -1,7 +1,7 @@
 ---
 title: '3D Printing: From a Sketch to a Solid Object on Your Desk'
 description: 'How a triangle mesh becomes toolpaths becomes a thing you can hold — and the handful of rules that make prints stop failing.'
-pubDate: 2026-07-15
+pubDate: 2026-07-17
 series:
   name: 'Maker Basics'
   part: 6

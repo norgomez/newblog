@@ -1,7 +1,7 @@
 ---
 title: 'How Electricity Actually Works (No Hand-Waving, No Calculus)'
 description: 'Voltage, current, and resistance form one single intuition — and with it, every circuit you meet starts making sense.'
-pubDate: 2026-07-16
+pubDate: 2026-07-12
 series:
   name: 'Maker Basics'
   part: 1
