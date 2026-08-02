@@ -39,7 +39,12 @@ const tocHeadings = headings.filter((heading) => heading.depth <= 3);
 const showToc = tocHeadings.length >= 4;
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout
+	title={title}
+	description={description}
+	type="article"
+	publishedDate={pubDate}
+>
 	<div class="post-grid">
 		<article>
 			<header class="post-header">
