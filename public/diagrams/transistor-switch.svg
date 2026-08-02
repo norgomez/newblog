@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" font-family="Menlo, Consolas, monospace">
+	<defs>
+		<marker id="tarr" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+			<path d="M0,0 L10,5 L0,10 z" fill="#b5714a" />
+		</marker>
+		<marker id="tarrG" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+			<path d="M0,0 L10,5 L0,10 z" fill="#8a8680" />
+		</marker>
+	</defs>
+
+	<!-- ============ LEFT: the MOSFET ============ -->
+	<text x="158" y="40" fill="#8a8680" font-size="13" text-anchor="middle">one transistor</text>
+
+	<!-- body -->
+	<rect x="40" y="150" width="236" height="76" rx="3" stroke="#8a8680" stroke-width="1.4" fill="none" />
+	<text x="158" y="216" fill="#8a8680" font-size="10" text-anchor="middle">silicon body</text>
+
+	<!-- source / drain -->
+	<rect x="52" y="150" width="52" height="32" stroke="#8a8680" stroke-width="1.3" fill="none" />
+	<rect x="212" y="150" width="52" height="32" stroke="#8a8680" stroke-width="1.3" fill="none" />
+	<text x="78" y="171" fill="#8a8680" font-size="10" text-anchor="middle">source</text>
+	<text x="238" y="171" fill="#8a8680" font-size="10" text-anchor="middle">drain</text>
+
+	<!-- insulator + gate -->
+	<rect x="104" y="142" width="108" height="7" stroke="#8a8680" stroke-width="1" fill="none" opacity="0.7" />
+	<rect x="104" y="116" width="108" height="26" rx="2" stroke="#b5714a" stroke-width="1.7" fill="none" />
+	<text x="158" y="133" fill="#b5714a" font-size="11" text-anchor="middle">gate</text>
+	<text x="288" y="148" fill="#8a8680" font-size="9.5" text-anchor="end">insulator</text>
+
+	<!-- the channel -->
+	<path d="M106,158 H210" stroke="#b5714a" stroke-width="2.6" stroke-dasharray="4 3" fill="none" />
+	<text x="158" y="196" fill="#b5714a" font-size="10" text-anchor="middle">channel</text>
+
+	<!-- current arrow -->
+	<path d="M84,140 V128" stroke="#8a8680" stroke-width="1.2" fill="none" />
+	<path d="M92,166 H200" stroke="#b5714a" stroke-width="1.2" fill="none" marker-end="url(#tarr)" opacity="0.5" />
+
+	<text x="158" y="252" fill="#8a8680" font-size="10.5" text-anchor="middle">voltage on the gate pulls a conducting</text>
+	<text x="158" y="266" fill="#8a8680" font-size="10.5" text-anchor="middle">channel into existence beneath it</text>
+	<text x="158" y="288" fill="#b5714a" font-size="10.5" text-anchor="middle">no voltage → no channel → no current</text>
+
+	<!-- divider -->
+	<path d="M320,60 V280" stroke="#8a8680" stroke-width="1" stroke-dasharray="4 5" fill="none" opacity="0.4" />
+
+	<!-- ============ RIGHT: the inverter ============ -->
+	<text x="482" y="40" fill="#8a8680" font-size="13" text-anchor="middle">two of them = a NOT gate</text>
+
+	<!-- rails -->
+	<path d="M400,84 H568" stroke="#8a8680" stroke-width="1.4" fill="none" />
+	<text x="580" y="88" fill="#8a8680" font-size="10.5">1</text>
+	<path d="M400,264 H568" stroke="#8a8680" stroke-width="1.4" fill="none" />
+	<text x="580" y="268" fill="#8a8680" font-size="10.5">0</text>
+
+	<!-- upper switch -->
+	<path d="M484,84 V108" stroke="#8a8680" stroke-width="1.4" fill="none" />
+	<rect x="440" y="108" width="88" height="34" rx="4" stroke="#b5714a" stroke-width="1.6" fill="none" />
+	<text x="484" y="129" fill="#b5714a" font-size="10" text-anchor="middle">on when in = 0</text>
+
+	<!-- output node -->
+	<path d="M484,142 V206" stroke="#8a8680" stroke-width="1.4" fill="none" />
+	<circle cx="484" cy="174" r="3.5" fill="#b5714a" />
+	<path d="M484,174 H560" stroke="#b5714a" stroke-width="1.4" fill="none" marker-end="url(#tarr)" />
+	<text x="566" y="170" fill="#b5714a" font-size="11">out</text>
+
+	<!-- lower switch -->
+	<rect x="440" y="206" width="88" height="34" rx="4" stroke="#b5714a" stroke-width="1.6" fill="none" />
+	<text x="484" y="227" fill="#b5714a" font-size="10" text-anchor="middle">on when in = 1</text>
+	<path d="M484,240 V264" stroke="#8a8680" stroke-width="1.4" fill="none" />
+
+	<!-- input -->
+	<text x="356" y="178" fill="#8a8680" font-size="11">in</text>
+	<path d="M374,174 H424" stroke="#8a8680" stroke-width="1.4" fill="none" />
+	<path d="M424,174 V125 H436" stroke="#8a8680" stroke-width="1.2" fill="none" marker-end="url(#tarrG)" />
+	<path d="M424,174 V223 H436" stroke="#8a8680" stroke-width="1.2" fill="none" marker-end="url(#tarrG)" />
+
+	<text x="482" y="290" fill="#8a8680" font-size="10.5" text-anchor="middle">exactly one is ever on — the output is always the opposite of the input</text>
+</svg>
