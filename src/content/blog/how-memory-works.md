@@ -1,13 +1,13 @@
 ---
 title: 'Memory: The Bottleneck Everyone Forgets'
 description: 'A bit of RAM is a capacitor so leaky it forgets in milliseconds. Understanding what it takes to keep it remembering explains why AI is limited far less by arithmetic than by moving numbers around.'
-pubDate: 2026-08-05
+pubDate: 2026-08-06
 series:
   name: 'Inside the Machine'
-  part: 2
+  part: 3
 ---
 
-Ask why AI needs expensive hardware and you'll hear about compute — trillions of operations per second, arithmetic on an industrial scale. [Part 1](/blog/how-gpus-work/) was about exactly that machinery.
+Ask why AI needs expensive hardware and you'll hear about compute — trillions of operations per second, arithmetic on an industrial scale. [The last post](/blog/how-gpus-work/) was about exactly that machinery.
 
 Now the correction: **most of the time, that machinery is idle, waiting.** When you run a language model on your own machine, the arithmetic units are largely twiddling their thumbs. The thing you're actually waiting on is memory — not because it's slow in any absolute sense, but because compute got so much faster that everything else became the problem.
 
@@ -73,7 +73,7 @@ So take a 70-billion-parameter model at 2 bytes per weight: **140 GB** that must
 
 > 140 GB ÷ 3,000 GB/s ≈ **47 milliseconds per token** — about 21 tokens per second, and that's a hard ceiling.
 
-Notice what's absent from that calculation: the arithmetic. It doesn't appear, because it isn't the constraint. As [part 1](/blog/how-gpus-work/) put it, generating a token is a matrix-times-vector operation — each weight is loaded, used for a single multiply-add, and discarded. About one operation per byte fetched, on hardware that wants a hundred. The arithmetic units are idle better than 90% of the time, waiting on the bus.
+Notice what's absent from that calculation: the arithmetic. It doesn't appear, because it isn't the constraint. As [the last post](/blog/how-gpus-work/) put it, generating a token is a matrix-times-vector operation — each weight is loaded, used for a single multiply-add, and discarded. About one operation per byte fetched, on hardware that wants a hundred. The arithmetic units are idle better than 90% of the time, waiting on the bus.
 
 Run the same sum on a 7B model and you get ~14 GB per token, ~5 ms, a couple of hundred tokens per second. **That ratio — not any difference in "thinking" — is why the small model feels fast.**
 
@@ -89,7 +89,7 @@ Three consequences fall straight out of this, and together they explain most of 
 
 If reading 140 GB gets you exactly one token, the economics look grim. The escape is one idea: **read the weights once, use them for many things at the same time.**
 
-Serve fifty users concurrently and you can load each weight once and multiply it against fifty different inputs while it's sitting there. The memory traffic barely changes; the useful work multiplies by fifty. The matrix-times-*vector* becomes a matrix-times-*matrix* — and that, per part 1, is the operation GPUs are actually good at. **Batching converts a memory-bound problem into a compute-bound one**, which is precisely the conversion you want, because compute is the thing you have in abundance.
+Serve fifty users concurrently and you can load each weight once and multiply it against fifty different inputs while it's sitting there. The memory traffic barely changes; the useful work multiplies by fifty. The matrix-times-*vector* becomes a matrix-times-*matrix* — and that, as we saw, is the operation GPUs are actually good at. **Batching converts a memory-bound problem into a compute-bound one**, which is precisely the conversion you want, because compute is the thing you have in abundance.
 
 This is why a hosted model answering thousands of people at once is dramatically more efficient per token than the same model on your desk answering only you. Alone, you pay the full 140 GB to get your one token. Shared, everyone splits the bill.
 

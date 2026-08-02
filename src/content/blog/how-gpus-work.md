@@ -1,10 +1,10 @@
 ---
 title: 'GPUs: How a Graphics Card Ended Up Running the World'
 description: 'A GPU is not a faster CPU — it is a chip that gave up on making any single thing fast, in exchange for doing ten thousand things at once. That trade is why AI runs on them.'
-pubDate: 2026-08-04
+pubDate: 2026-08-05
 series:
   name: 'Inside the Machine'
-  part: 1
+  part: 2
 ---
 
 Twenty years ago a graphics card was a peripheral for gamers. Today it's the most contested industrial commodity on earth, and the reason is a piece of arithmetic that has nothing to do with graphics.
@@ -85,7 +85,7 @@ Multiply two big matrices together and the answer is excellent: each number you 
 
 Multiply a big matrix by a single vector — which is what generating **one token** of text does — and the answer is dismal. Every weight is loaded, used for exactly one multiply-add, and thrown away. Roughly one operation per byte fetched, against hardware that needs a hundred or more to break even.
 
-At that point the sixteen thousand arithmetic units aren't the constraint at all. They're sitting idle, waiting on memory, which is the subject of [part 2](/blog/how-memory-works/).
+At that point the sixteen thousand arithmetic units aren't the constraint at all. They're sitting idle, waiting on memory, which is the subject of [the next post](/blog/how-memory-works/).
 
 ---
 
