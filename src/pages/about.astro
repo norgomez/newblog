@@ -1,23 +1,58 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { AUTHOR_EMAIL, AUTHOR_GITHUB } from '../consts';
 ---
 
-<BaseLayout title="About">
+<BaseLayout
+	title="About"
+	description="Norberto Gomez Jr — mechatronics engineer working in UAV ground operations, writing first-principles notes on how things work."
+>
 	<div class="prose" style="padding-top: 1.5rem;">
 		<h2 style="margin-top: 0;">About</h2>
+
 		<p>
-			Hi — I'm an engineer who likes to write about the things I build and the
-			things I learn along the way. This blog is where those notes live.
+			I'm Norberto — a mechatronics engineer in McKinney, Texas. I work in
+			ground operations for autonomous UAVs, which in practice means scheduled
+			maintenance, ground control stations, firmware, field deployments, and
+			working out why something that ran fine yesterday doesn't today.
 		</p>
+
 		<p>
-			Expect posts about software design, tooling, debugging war stories, and
-			the occasional deep dive into how something works under the hood.
+			Before that I built and commissioned automated production machinery for
+			battery manufacturing in Ireland, ran a production floor, and spent
+			several years in regulated medical manufacturing. I hold a BEng in
+			Mechatronics from Atlantic Technological University.
 		</p>
+
 		<p>
-			<em>
-				This page is a placeholder — edit
-				<code>src/pages/about.astro</code> to make it yours.
-			</em>
+			This blog is where I write things down — mostly the things I work with or
+			want to understand properly: electricity, motors, sensors, control loops,
+			machines, cars, and lately the silicon underneath modern computing. Some
+			software too.
+		</p>
+
+		<p>
+			The rule I try to hold to is <em>no hand-waving</em>. If an explanation
+			bottoms out at "and then it just works," it isn't finished. Most posts
+			start from one physical fact and build up from there, because that's the
+			only way I've ever managed to actually remember anything.
+		</p>
+
+		<p>
+			A few of them run as connected series: <a
+				href="/blog/how-electricity-actually-works/">Maker Basics</a
+			> on electronics from the ground up, <a
+				href="/blog/the-loops-that-drive-your-car/">Under the Hood</a
+			> on how cars work, and <a href="/blog/what-a-transistor-actually-does/"
+				>Inside the Machine</a
+			> on the hardware AI runs on. The <a href="/projects/">projects page</a> has
+			things I've actually built; my <a href="/cv/">CV</a> has the professional version.
+		</p>
+
+		<p class="about-contact">
+			<a href={`mailto:${AUTHOR_EMAIL}`}>{AUTHOR_EMAIL}</a>
+			<span aria-hidden="true">·</span>
+			<a href={AUTHOR_GITHUB} rel="me">GitHub</a>
 		</p>
 	</div>
 </BaseLayout>

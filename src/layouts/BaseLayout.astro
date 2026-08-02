@@ -10,10 +10,23 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 interface Props {
 	title?: string;
 	description?: string;
+	/** Set on blog posts so social cards say "article" rather than "website". */
+	type?: 'website' | 'article';
+	publishedDate?: Date;
 }
 
-const { title, description = SITE_DESCRIPTION } = Astro.props;
+const {
+	title,
+	description = SITE_DESCRIPTION,
+	type = 'website',
+	publishedDate,
+} = Astro.props;
 const pageTitle = title ? `${title} — ${SITE_TITLE}` : SITE_TITLE;
+
+// Astro.site comes from `site` in astro.config.mjs; these are absolute so that
+// feed readers and social-card scrapers resolve them correctly.
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const socialImage = new URL('/social-card.png', Astro.site);
 ---
 
 <html lang="en">
@@ -23,7 +36,33 @@ const pageTitle = title ? `${title} — ${SITE_TITLE}` : SITE_TITLE;
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description} />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="canonical" href={canonical} />
+		<link
+			rel="alternate"
+			type="application/rss+xml"
+			title={SITE_TITLE}
+			href={new URL('/rss.xml', Astro.site)}
+		/>
 		<title>{pageTitle}</title>
+
+		<meta property="og:type" content={type} />
+		<meta property="og:title" content={title ?? SITE_TITLE} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonical} />
+		<meta property="og:site_name" content={SITE_TITLE} />
+		<meta property="og:image" content={socialImage} />
+		{
+			publishedDate && (
+				<meta
+					property="article:published_time"
+					content={publishedDate.toISOString()}
+				/>
+			)
+		}
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title ?? SITE_TITLE} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={socialImage} />
 		<script is:inline>
 			// Set the theme before first paint to avoid a flash of the wrong theme
 			const theme =

@@ -1,0 +1,246 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { AUTHOR, AUTHOR_EMAIL, AUTHOR_GITHUB } from '../consts';
+
+const headline = 'UAV Ground Operations · Mechatronics · Automated Production';
+const location = 'McKinney, TX';
+
+const expertise = [
+	{
+		label: 'UAV & ground systems',
+		items: 'Scheduled maintenance, fleet-readiness support, engineering service bulletins, launch-site deployment, GCS/GSE, communications hardware, payload cameras, R&D and field-test support',
+	},
+	{
+		label: 'Mechatronics & automation',
+		items: 'Electromechanical assembly, PLC troubleshooting, ladder logic, structured text, robotics, calibration, mechanical/electrical/pneumatic drawing interpretation',
+	},
+	{
+		label: 'Production, test & quality',
+		items: 'Firmware flashing and configuration, functional testing, NCR and root-cause support, corrective actions, prototype/NPI work, SOPs, Lean/5S, cleanroom production',
+	},
+	{
+		label: 'Tools & software',
+		items: 'Milling machines, power tools, 3D printing, Fusion 360, LabVIEW, MATLAB, Siemens Simatic Manager, FluidSIM, Python, Microsoft Office',
+	},
+];
+
+const experience = [
+	{
+		company: 'Shield AI',
+		location: 'Frisco, TX',
+		roles: [
+			{
+				title: 'Tech II, Ground Operations Specialist',
+				dates: '2026 — Present',
+				bullets: [
+					'Perform scheduled maintenance on autonomous UAV platforms across 25- to 500-hour service intervals, supporting aircraft availability and fleet readiness.',
+					'Execute and verify engineering service bulletins, configuration changes, and field requirements before operational use, following documented maintenance and safety practices.',
+					'Build and deploy field sites by integrating Ground Control Station systems, Ground Support Equipment, communications hardware, and field support kits.',
+					'Troubleshoot aircraft and ground-system setup during R&D, field-test, and special-project support; document observations for engineering and operations teams.',
+				],
+			},
+			{
+				title: 'Production Technician, Ground Department',
+				dates: 'May 2025 — 2026',
+				bullets: [
+					'Flashed, configured, and verified firmware on radios, payload cameras, tablets/laptops, and UAV ground-support equipment.',
+					'Conducted functional testing on electrical and mechanical subsystems, documented results, and resolved build issues before release.',
+					'Supported prototype and new-product-introduction work by improving work instructions, test notes, and production feedback loops.',
+					'Partnered with engineering and quality teams on NCR resolution, root-cause analysis, corrective-action support, and production issues.',
+				],
+			},
+		],
+	},
+	{
+		company: 'Xerotech',
+		location: 'Claregalway, Ireland',
+		roles: [
+			{
+				title: 'Machine Build Technician',
+				dates: 'Jul 2023 — Feb 2025',
+				bullets: [
+					'Built, wired, debugged, and commissioned complex automated equipment for battery manufacturing and production scale-up.',
+					'Supported robotic welding, wire bonding, ultrasonic heat staking, pick-and-place, vacuum, pump, and laser systems.',
+					'Set up and supported battery safety and validation tests, including temperature and detonation test activities.',
+					'Fabricated and maintained parts and tooling using milling equipment, power tools, and 3D printers; managed project materials and inventory.',
+				],
+			},
+			{
+				title: 'Production Supervisor',
+				dates: 'Jun 2022 — Jul 2023',
+				bullets: [
+					'Directed daily production activity, staffing, quality checks, work in progress, and issue escalation to meet customer demand and operating KPIs.',
+					'Coordinated with engineering, maintenance, and quality teams to resolve technical problems, streamline workflows, and support process improvements.',
+				],
+			},
+			{
+				title: 'Production Team Lead',
+				dates: 'Feb 2022 — Jun 2022',
+				bullets: [
+					'Programmed, operated, and maintained automated machinery to sustain efficient production workflows.',
+					'Completed quality-control checks against customer specifications and escalated production or equipment issues for resolution.',
+				],
+			},
+		],
+	},
+	{
+		company: 'Merit Medical',
+		location: 'Galway, Ireland',
+		roles: [
+			{
+				title: 'Machine Operator',
+				dates: 'Oct 2021 — Feb 2022',
+				bullets: [
+					'Operated and monitored medical-device production equipment to assemble, inspect, and package components under cleanroom, quality, and safety procedures.',
+					'Cross-trained between cleanroom and warehouse operations to support changing production demand and workflow continuity.',
+				],
+			},
+		],
+	},
+	{
+		company: 'Medtronic',
+		location: 'Parkmore & Mervue, Ireland',
+		roles: [
+			{
+				title: 'Production Technician',
+				dates: 'Oct 2019 — Feb 2021',
+				bullets: [
+					"Contributed to the site team's 200% ventilator production ramp toward 1,000 PB980 units per week during the COVID-19 response.",
+					'Assembled precision stent-catheter components under a microscope, and calibrated and tested PB980 ventilators with engineering support.',
+					'Worked with engineers to improve production processes and support consistent build and test execution.',
+				],
+			},
+		],
+	},
+	{
+		company: 'Medisca Pharmaceutical',
+		location: 'Irving, TX',
+		roles: [
+			{
+				title: 'Production Technician',
+				dates: 'May 2015 — Jul 2018',
+				bullets: [
+					'Packaged bulk chemicals, medical devices, and controlled substances to SOP requirements in a controlled cleanroom environment.',
+					'Maintained PPE, laboratory tools, machinery, and cleanroom readiness in accordance with documented procedures.',
+				],
+			},
+		],
+	},
+];
+
+const education = [
+	{
+		title: 'Bachelor of Engineering (BEng), Mechatronics — Distinction',
+		school: 'Atlantic Technological University, Sligo, Ireland',
+		dates: '2025',
+	},
+	{
+		title: 'Certificate in Automation and Instrumentation',
+		school: 'Atlantic Technological University, Sligo, Ireland',
+		dates: '2023',
+	},
+];
+---
+
+<BaseLayout
+	title="CV"
+	description="Norberto Gomez Jr — mechatronics engineer with nearly a decade across UAV ground operations, automated machine builds, and regulated manufacturing."
+>
+	<article class="cv">
+		<header class="cv-header">
+			<h1>{AUTHOR}</h1>
+			<p class="cv-headline">{headline}</p>
+			<p class="cv-contact">
+				<span>{location}</span>
+				<span aria-hidden="true">·</span>
+				<a href={`mailto:${AUTHOR_EMAIL}`}>{AUTHOR_EMAIL}</a>
+				<span aria-hidden="true">·</span>
+				<a href={AUTHOR_GITHUB} rel="me">github.com/norgomez</a>
+			</p>
+		</header>
+
+		<p class="cv-profile">
+			Mechatronics professional and BEng graduate with nearly a decade of
+			hands-on experience across autonomous UAV ground operations,
+			electromechanical production, automated machine builds, and regulated
+			medical manufacturing. Progressed from production and team leadership into
+			aircraft and ground-system support involving scheduled maintenance,
+			GCS/GSE deployment, firmware configuration, functional validation,
+			troubleshooting, and field-test support. Brings practical build discipline
+			and cross-functional experience supporting engineering, quality, and
+			operational teams.
+		</p>
+
+		<p class="cv-aside">
+			Some of the thinking behind this shows up in the <a href="/projects/"
+				>projects</a
+			> I've built and the <a href="/">technical write-ups</a> on this site.
+		</p>
+
+		<section class="cv-section">
+			<h2>Core expertise</h2>
+			<dl class="cv-expertise">
+				{
+					expertise.map(({ label, items }) => (
+						<div class="cv-expertise-row">
+							<dt>{label}</dt>
+							<dd>{items}</dd>
+						</div>
+					))
+				}
+			</dl>
+		</section>
+
+		<section class="cv-section">
+			<h2>Experience</h2>
+			{
+				experience.map(({ company, location: loc, roles }) => (
+					<div class="cv-company">
+						<div class="cv-company-head">
+							<h3>{company}</h3>
+							<span class="cv-place">{loc}</span>
+						</div>
+						{roles.map(({ title, dates, bullets }) => (
+							<div class="cv-role">
+								<div class="cv-role-head">
+									<h4>{title}</h4>
+									<span class="cv-dates">{dates}</span>
+								</div>
+								<ul>
+									{bullets.map((b) => (
+										<li>{b}</li>
+									))}
+								</ul>
+							</div>
+						))}
+					</div>
+				))
+			}
+		</section>
+
+		<section class="cv-section">
+			<h2>Education</h2>
+			{
+				education.map(({ title, school, dates }) => (
+					<div class="cv-role cv-education">
+						<div class="cv-role-head">
+							<h4>{title}</h4>
+							<span class="cv-dates">{dates}</span>
+						</div>
+						<p class="cv-place">{school}</p>
+					</div>
+				))
+			}
+		</section>
+
+		<p class="cv-print-note">
+			<button class="cv-print" type="button">Print / save as PDF</button>
+		</p>
+	</article>
+
+	<script>
+		document
+			.querySelector('.cv-print')
+			?.addEventListener('click', () => window.print());
+	</script>
+</BaseLayout>
