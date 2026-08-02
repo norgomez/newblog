@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" font-family="Menlo, Consolas, monospace">
+	<defs>
+		<marker id="larr" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+			<path d="M0,0 L10,5 L0,10 z" fill="#8a8680" />
+		</marker>
+		<marker id="larrA" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+			<path d="M0,0 L10,5 L0,10 z" fill="#b5714a" />
+		</marker>
+	</defs>
+
+	<text x="320" y="38" fill="#8a8680" font-size="11" text-anchor="middle">a bare silicon wafer goes in — one layer of the circuit comes out</text>
+
+	<!-- steps -->
+	<g stroke="#8a8680" stroke-width="1.5" fill="none">
+		<rect x="24" y="106" width="104" height="72" rx="5" />
+		<rect x="268" y="106" width="104" height="72" rx="5" />
+		<rect x="390" y="106" width="104" height="72" rx="5" />
+		<rect x="512" y="106" width="104" height="72" rx="5" />
+	</g>
+	<!-- the expose step, accented -->
+	<rect x="146" y="106" width="104" height="72" rx="5" stroke="#b5714a" stroke-width="1.9" fill="none" />
+
+	<!-- arrows between -->
+	<g stroke="#8a8680" stroke-width="1.4" fill="none">
+		<path d="M128,142 H142" marker-end="url(#larr)" />
+		<path d="M250,142 H264" marker-end="url(#larr)" />
+		<path d="M372,142 H386" marker-end="url(#larr)" />
+		<path d="M494,142 H508" marker-end="url(#larr)" />
+	</g>
+
+	<!-- step numbers + names -->
+	<g fill="#8a8680" font-size="9.5" text-anchor="middle">
+		<text x="76" y="126">1</text>
+		<text x="320" y="126">3</text>
+		<text x="442" y="126">4</text>
+		<text x="564" y="126">5</text>
+	</g>
+	<text x="198" y="126" fill="#b5714a" font-size="9.5" text-anchor="middle">2</text>
+
+	<g fill="#8a8680" font-size="11" text-anchor="middle">
+		<text x="76" y="146">coat</text>
+		<text x="320" y="146">develop</text>
+		<text x="442" y="146">etch</text>
+		<text x="564" y="146">strip</text>
+	</g>
+	<text x="198" y="146" fill="#b5714a" font-size="11" text-anchor="middle">expose</text>
+
+	<g fill="#8a8680" font-size="9" text-anchor="middle">
+		<text x="76" y="164">film + resist</text>
+		<text x="320" y="164">wash the</text>
+		<text x="320" y="174">exposed away</text>
+		<text x="442" y="164">cut what the</text>
+		<text x="442" y="174">resist left bare</text>
+		<text x="564" y="164">remove resist</text>
+	</g>
+	<text x="198" y="164" fill="#b5714a" font-size="9" text-anchor="middle">project the mask</text>
+	<text x="198" y="174" fill="#b5714a" font-size="9" text-anchor="middle">through a lens</text>
+
+	<text x="198" y="94" fill="#b5714a" font-size="9.5" text-anchor="middle">↑ the only step that needs the $200M machine</text>
+
+	<!-- the loop back -->
+	<circle cx="564" cy="178" r="3.5" fill="#b5714a" />
+	<path d="M564,180 V240 H76 V182" stroke="#b5714a" stroke-width="1.6" fill="none" stroke-linejoin="round" marker-end="url(#larrA)" />
+	<text x="320" y="232" fill="#b5714a" font-size="11" text-anchor="middle">repeat — roughly a hundred times</text>
+
+	<path d="M24,262 H616" stroke="#8a8680" stroke-width="1" opacity="0.35" fill="none" />
+	<text x="320" y="284" fill="#8a8680" font-size="10.5" text-anchor="middle">every layer must line up with the one beneath it to within a few nanometres,</text>
+	<text x="320" y="298" fill="#8a8680" font-size="10.5" text-anchor="middle">across a wafer the size of a dinner plate — and one speck of dust ruins whatever it lands on</text>
+</svg>
