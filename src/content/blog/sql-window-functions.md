@@ -2,6 +2,7 @@
 title: 'A Field Guide to SQL Window Functions'
 description: 'The single most underused feature in SQL: aggregate context without collapsing your rows.'
 pubDate: 2026-06-21
+tags: [software]
 ---
 
 `GROUP BY` has one big limitation: it collapses rows. If you want each order *and* the customer's running total, or each employee *and* their department's average, plain aggregation forces you into subqueries and self-joins.

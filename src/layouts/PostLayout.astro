@@ -1,7 +1,8 @@
 ---
 import type { MarkdownHeading } from 'astro';
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { type CollectionEntry } from 'astro:content';
 import BaseLayout from './BaseLayout.astro';
+import { allPosts as loadPosts, relatedPosts } from '../lib/posts';
 
 interface Props {
 	post: CollectionEntry<'blog'>;
@@ -9,7 +10,7 @@ interface Props {
 }
 
 const { post, headings = [] } = Astro.props;
-const { title, description, pubDate, series } = post.data;
+const { title, description, pubDate, updatedDate, series, tags } = post.data;
 
 const formattedDate = new Intl.DateTimeFormat('en-GB', {
 	day: 'numeric',
@@ -18,12 +19,20 @@ const formattedDate = new Intl.DateTimeFormat('en-GB', {
 	timeZone: 'UTC', // frontmatter dates parse as UTC midnight
 }).format(pubDate);
 
+const formattedUpdated = updatedDate
+	? new Intl.DateTimeFormat('en-GB', {
+			day: 'numeric',
+			month: 'long',
+			year: 'numeric',
+			timeZone: 'UTC',
+		}).format(updatedDate)
+	: undefined;
+
 const words = (post.body ?? '').split(/\s+/).filter(Boolean).length;
 const readingTime = Math.max(1, Math.round(words / 220));
 
-const allPosts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
+const allPosts = await loadPosts();
+const related = relatedPosts(post, allPosts);
 const currentIndex = allPosts.findIndex((p) => p.id === post.id);
 const newer = currentIndex > 0 ? allPosts[currentIndex - 1] : undefined;
 const older =
@@ -46,13 +55,15 @@ const showToc = tocHeadings.length >= 4;
 	publishedDate={pubDate}
 >
 	<div class="post-grid">
-		<article>
+		<article data-pagefind-body>
 			<header class="post-header">
 				<a class="back-link" href="/">← All writing</a>
 				<h1>{title}</h1>
 				<p class="lede">{description}</p>
 				<p class="meta" style="padding-bottom: 1.25rem;">
-					{formattedDate} · {readingTime} min read
+					{formattedDate} · {readingTime} min read{
+						formattedUpdated && <> · updated {formattedUpdated}</>
+					}
 				</p>
 			</header>
 
@@ -97,6 +108,38 @@ const showToc = tocHeadings.length >= 4;
 			<div class="prose">
 				<slot />
 			</div>
+
+			{
+				tags.length > 0 && (
+					<ul class="tag-list" aria-label="Topics">
+						{tags.map((tag) => (
+							<li>
+								<a class="tag-chip" href={`/tags/${tag}/`}>
+									{tag}
+								</a>
+							</li>
+						))}
+					</ul>
+				)
+			}
+
+			{
+				related.length > 0 && (
+					<section class="related" aria-labelledby="related-h">
+						<h2 class="meta" id="related-h">
+							Related reading
+						</h2>
+						<ul>
+							{related.map((p) => (
+								<li>
+									<a href={`/blog/${p.id}/`}>{p.data.title}</a>
+									<span class="meta">{p.data.description}</span>
+								</li>
+							))}
+						</ul>
+					</section>
+				)
+			}
 
 			<nav class="post-nav" aria-label="Adjacent posts">
 				{

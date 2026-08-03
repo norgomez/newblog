@@ -2,6 +2,7 @@
 title: 'How Air Conditioning Works: The Art of Moving Heat Uphill'
 description: 'Your AC does not make cold air — it pumps heat out of your house using a fluid with a very convenient boiling point.'
 pubDate: 2026-07-21
+tags: [thermodynamics, mechanical]
 ---
 
 Here's the mental flip that makes air conditioning make sense: **there is no such thing as cold.** Cold isn't a substance you can create or blow into a room — it's just the absence of heat, the way dark is the absence of light. An air conditioner doesn't manufacture cold. It's a pump. It grabs heat from inside your house and throws it outside, and what's left behind *feels* cold.

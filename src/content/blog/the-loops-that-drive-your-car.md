@@ -2,6 +2,7 @@
 title: 'The Loops That Drive Your Car'
 description: 'Driving is not a skill so much as a feedback loop — and under the hood, your car is running dozens more of them, some a thousand times faster than you.'
 pubDate: 2026-07-22
+tags: [automotive, control]
 series:
   name: 'Under the Hood'
   part: 1

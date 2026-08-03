@@ -2,6 +2,7 @@
 title: 'Running Cable: A Field Guide to Getting Wires from A to B'
 description: 'Every project ends with “now I just need to get a cable over there.” The planning, physics, and tools that make that sentence honest.'
 pubDate: 2026-07-30
+tags: [electricity, tools]
 ---
 
 Every hardware project has a final boss nobody plans for: the cable run. The camera works, the access point works, the workbench has power — *on the bench*. Getting the wire from where it is to where it needs to be, through walls and ceilings and that one impossible corner, is its own discipline. Electricians and network installers spend careers on it, and the difference between their runs and a weekend bodge isn't strength or luck — it's planning, a little physics, and about six specific tools.

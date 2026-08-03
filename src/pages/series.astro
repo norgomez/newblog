@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { allPosts, seriesIndex } from '../lib/posts';
+
+const posts = await allPosts();
+const series = seriesIndex(posts);
+
+// Blurbs are editorial; the parts themselves are derived from the content.
+const blurbs: Record<string, string> = {
+	'Maker Basics':
+		'Electronics from first principles — electricity, communication, microcontrollers, sensing, motion, and making things.',
+	'Under the Hood':
+		'How cars actually work — the control loops, the machinery, and why electric drivetrains delete half of it.',
+	'Inside the Machine':
+		'The hardware AI actually runs on — from a single switch up to a datacenter, and why moving numbers costs more than crunching them.',
+};
+---
+
+<BaseLayout
+	title="Series"
+	description="Connected runs of posts, each building from one idea to the next."
+>
+	<header class="page-header">
+		<h1>Series</h1>
+		<p class="meta">{series.length} series · {series.reduce((n, s) => n + s.posts.length, 0)} posts</p>
+	</header>
+
+	<p class="intro" style="border-bottom: 0; padding-bottom: 0.5rem;">
+		Some subjects don't fit in one post. These run in order, each part
+		assuming the one before it.
+	</p>
+
+	{
+		series.map(({ name, posts: parts }) => (
+			<section class="series-block">
+				<div class="series-block-head">
+					<h2>{name}</h2>
+					<span class="meta">{parts.length} parts</span>
+				</div>
+				{blurbs[name] && <p class="series-block-blurb">{blurbs[name]}</p>}
+				<ol class="series-parts">
+					{parts.map((post) => (
+						<li>
+							<span class="series-part-no">{post.data.series?.part}</span>
+							<a href={`/blog/${post.id}/`}>{post.data.title}</a>
+						</li>
+					))}
+				</ol>
+			</section>
+		))
+	}
+</BaseLayout>

@@ -2,6 +2,7 @@
 title: 'The Tools Everyone Should Own: An Engineer’s Starter Kit'
 description: 'Not a shopping list — a capability list. The tools that turn “I wish I could fix that” into “hand it here,” and the order to buy them in.'
 pubDate: 2026-07-31
+tags: [tools]
 ---
 
 A toolkit isn't a collection of objects; it's a collection of *capabilities*. Every tool on this list unlocks a category of problem you can now solve yourself — a wobbly hinge, a dead charger, a bracket that doesn't exist in any store. And the list is deliberately short, because the goal isn't a wall of tools. It's the minimum set that makes you dangerous.

@@ -2,6 +2,7 @@
 title: 'How a Chip Gets Made: Printing with Light You Cannot See'
 description: 'A hundred billion transistors, essentially all of them working, for a few hundred dollars. You could never build that one at a time — so nobody does. You print it, about a hundred times over, with light that no lens can focus.'
 pubDate: 2026-08-08
+tags: [computing, hardware, manufacturing]
 series:
   name: 'Inside the Machine'
   part: 5

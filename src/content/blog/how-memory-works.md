@@ -2,6 +2,7 @@
 title: 'Memory: The Bottleneck Everyone Forgets'
 description: 'A bit of RAM is a capacitor so leaky it forgets in milliseconds. Understanding what it takes to keep it remembering explains why AI is limited far less by arithmetic than by moving numbers around.'
 pubDate: 2026-08-06
+tags: [computing, hardware, ai]
 series:
   name: 'Inside the Machine'
   part: 3

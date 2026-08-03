@@ -2,6 +2,7 @@
 title: 'How Electric Motors Work: Magnets, Current, and the Chase'
 description: 'One physical fact — a wire in a magnetic field feels a push — and a century of clever geometry for turning that push into spin.'
 pubDate: 2026-07-24
+tags: [motors, electricity]
 series:
   name: 'Under the Hood'
   part: 3

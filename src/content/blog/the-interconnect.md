@@ -2,6 +2,7 @@
 title: 'The Interconnect: When One Chip Is Not Enough'
 description: 'A frontier model does not fit on one accelerator, or ten. Once you spread a computation across thousands of chips, the wires between them stop being plumbing and become the machine.'
 pubDate: 2026-08-09
+tags: [computing, hardware, ai]
 series:
   name: 'Inside the Machine'
   part: 6

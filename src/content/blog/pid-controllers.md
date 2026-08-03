@@ -2,6 +2,7 @@
 title: 'PID Controllers: The Sixty-Year-Old Algorithm Keeping Drones in the Air'
 description: 'Three terms and one loop run your thermostat, your car, and every quadcopter — here is the intuition behind each letter.'
 pubDate: 2026-07-18
+tags: [control, software]
 ---
 
 Here's a deceptively hard problem: keep a drone hovering at exactly two meters. You have a sensor that measures altitude and a motor you can throttle up or down. Easy, right? If you're too low, add power; too high, cut it.

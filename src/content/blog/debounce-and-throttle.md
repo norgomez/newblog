@@ -2,6 +2,7 @@
 title: 'Debounce and Throttle, from First Principles'
 description: 'Two tiny functions that solve the same problem in opposite ways — and how to know which one you need.'
 pubDate: 2026-07-08
+tags: [software]
 ---
 
 Every frontend engineer eventually meets the same problem: an event fires far more often than you want to respond to it. A search box fires `input` on every keystroke. A window fires `resize` dozens of times per second while the user drags. Responding to every single event is wasteful at best and a performance bug at worst.

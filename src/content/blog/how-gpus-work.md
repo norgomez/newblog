@@ -2,6 +2,7 @@
 title: 'GPUs: How a Graphics Card Ended Up Running the World'
 description: 'A GPU is not a faster CPU — it is a chip that gave up on making any single thing fast, in exchange for doing ten thousand things at once. That trade is why AI runs on them.'
 pubDate: 2026-08-05
+tags: [computing, hardware, ai]
 series:
   name: 'Inside the Machine'
   part: 2

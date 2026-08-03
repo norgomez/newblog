@@ -2,6 +2,7 @@
 title: 'What EVs Delete'
 description: 'The electric car is not an addition to the automobile — it is a subtraction, and almost everything this series explained is on the cut list.'
 pubDate: 2026-07-27
+tags: [automotive, electricity]
 series:
   name: 'Under the Hood'
   part: 6

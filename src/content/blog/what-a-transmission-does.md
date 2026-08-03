@@ -2,6 +2,7 @@
 title: 'What a Transmission Actually Does (and Why Cars Cannot Live Without One)'
 description: 'It is not just a box of gears — it is a translator between an engine that only speaks one narrow dialect and a road that demands everything.'
 pubDate: 2026-07-26
+tags: [automotive, mechanical]
 series:
   name: 'Under the Hood'
   part: 5

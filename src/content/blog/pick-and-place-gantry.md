@@ -2,6 +2,7 @@
 title: 'Project: A Pick-and-Place Gantry Built from a Dead 3D Printer'
 description: 'My mechatronics final project — two axes, a servo gripper, an industrial-style control panel, and every part of this series bolted into one machine.'
 pubDate: 2026-07-28
+tags: [electronics, control, fabrication, sensors]
 series:
   name: 'Maker Basics'
   part: 7
@@ -16,7 +17,10 @@ The [Maker Basics series](/blog/how-electricity-actually-works/) ended with a cl
 The machine is an **automated pick-and-place gantry**: it homes itself, waits until an ultrasonic sensor sees an object arrive at the pickup station, drives a servo gripper down to grab it, carries it along the X axis, and sets it down at one of two drop platforms — alternating between them automatically, or on command in manual mode, while counting every drop. Pick-and-place is the bread and butter of real manufacturing automation; this is the desktop-scale version, built from salvage and 3D printed parts.
 
 <figure>
-	<img src="/images/gantry/gantry.jpg" alt="The finished two-axis gantry: a vertical Z axis with lead screw and servo gripper riding on a horizontal X axis, above a work surface with 3D-printed platforms and white pickup objects" width="900" height="1200" loading="lazy" />
+	<picture>
+		<source srcset="/images/gantry/gantry.webp" type="image/webp" />
+		<img src="/images/gantry/gantry.jpg" alt="The finished two-axis gantry: a vertical Z axis with lead screw and servo gripper riding on a horizontal X axis, above a work surface with 3D-printed platforms and white pickup objects" width="900" height="1200" loading="lazy" />
+	</picture>
 	<figcaption>The finished machine: X axis salvaged from a 3D printer, Z axis built up from extrusion, and 3D-printed everything else.</figcaption>
 </figure>
 
@@ -29,14 +33,20 @@ A 20×40 mm aluminum extrusion bolted vertically to the X carriage became the Z 
 Everything that connects one part to another was modeled in Fusion 360 and printed on a Bambu printer: motor brackets, limit-switch mounts, the two drop platforms, a housing to hold the ultrasonic sensor at a repeatable angle, and even the demonstration object itself, shaped so the gripper can grab it without tipping it. When a bracket was a millimeter off, I revised the CAD and reprinted — the rapid-iteration loop that makes 3D printing the natural companion to projects like this.
 
 <figure>
-	<img src="/images/gantry/printed-parts.jpg" alt="CAD renders of the 3D-printed parts: T-nut housing, stepper bracket, gripper bracket, drop platform, pickup object, ultrasonic sensor platform, limit switch bracket, and the assembled gripper" width="730" height="1200" loading="lazy" />
+	<picture>
+		<source srcset="/images/gantry/printed-parts.webp" type="image/webp" />
+		<img src="/images/gantry/printed-parts.jpg" alt="CAD renders of the 3D-printed parts: T-nut housing, stepper bracket, gripper bracket, drop platform, pickup object, ultrasonic sensor platform, limit switch bracket, and the assembled gripper" width="730" height="1200" loading="lazy" />
+	</picture>
 	<figcaption>The printed cast: brackets, platforms, the sensor housing, the pickup object, and the gripper.</figcaption>
 </figure>
 
 For the gripper itself I surveyed the options — vacuum cups, magnets, pneumatics, soft silicone fingers — and landed on the open-source **AR4 servo gripper from Annin Robotics**: a two-finger clamp driven by an MG996R hobby servo, compact enough for the gantry's workspace and printable from published CAD files.
 
 <figure>
-	<img src="/images/gantry/gripper.jpg" alt="Close-up of the 3D-printed AR4 servo gripper mounted on the Z carriage, with the red servo horn visible" width="901" height="1200" loading="lazy" />
+	<picture>
+		<source srcset="/images/gantry/gripper.webp" type="image/webp" />
+		<img src="/images/gantry/gripper.jpg" alt="Close-up of the 3D-printed AR4 servo gripper mounted on the Z carriage, with the red servo horn visible" width="901" height="1200" loading="lazy" />
+	</picture>
 	<figcaption>The AR4 gripper on the Z carriage — one servo, two printed fingers.</figcaption>
 </figure>
 
@@ -47,14 +57,20 @@ This is the part of the project I'm proudest of. Most Arduino builds live as a n
 Mains enters through a 13 A fused UK plug into a **main isolator switch**, then a **residual-current breaker (RCBO)** guarding the whole system. Two DIN-rail supplies split the power rails: a Mean Well unit providing **24 V** for the stepper drivers and motors, and a **5 V / 3 A** supply for the Arduino, sensors, and servo — each rail protected by its own 2 A fuse. A red two-position **safety switch** can kill both DC rails at once for troubleshooting without touching the mains side, and an indicator lamp confirms the panel is live. Every wire lands on a labeled **terminal block**, grouped into four sections: mains in (X1), 24 V distribution (X2), 5 V distribution (X3), and all field I/O — limit switches, ultrasonic sensor, servo (X4).
 
 <figure>
-	<img src="/images/gantry/terminal-blocks.jpg" alt="The terminal block rows inside the panel, labeled Mains, 24VDC, 5VDC, and Inputs/Outputs, with numbered wires landing on each block" width="1200" height="906" loading="lazy" />
+	<picture>
+		<source srcset="/images/gantry/terminal-blocks.webp" type="image/webp" />
+		<img src="/images/gantry/terminal-blocks.jpg" alt="The terminal block rows inside the panel, labeled Mains, 24VDC, 5VDC, and Inputs/Outputs, with numbered wires landing on each block" width="1200" height="906" loading="lazy" />
+	</picture>
 	<figcaption>The terminal block sections. Every conductor is numbered and labeled — future-me can trace any wire in seconds.</figcaption>
 </figure>
 
 Motion is driven by two **TB6600 stepper drivers** — chosen over the smaller A4988/DRV8825 modules for their 4 A capacity, DIP-switch configuration, and enclosure-friendly form factor — set to 1/8 microstepping with a 1–1.2 A current limit, which keeps the motors smooth *and* safely under the fuse rating. An **Arduino Mega 2560** on a screw-terminal shield runs the show. I drew the full schematic set in Excalidraw, one page per subsystem, with every wire number matching the physical labels in the panel.
 
 <figure>
-	<img src="/images/gantry/control-panel.jpg" alt="The finished control panel: RCBO and Mean Well 24V supply on the top DIN rail, fuses, Arduino Mega on a terminal shield, TB6600 drivers, and labeled terminal blocks below, all connected through wire duct" width="900" height="1200" loading="lazy" />
+	<picture>
+		<source srcset="/images/gantry/control-panel.webp" type="image/webp" />
+		<img src="/images/gantry/control-panel.jpg" alt="The finished control panel: RCBO and Mean Well 24V supply on the top DIN rail, fuses, Arduino Mega on a terminal shield, TB6600 drivers, and labeled terminal blocks below, all connected through wire duct" width="900" height="1200" loading="lazy" />
+	</picture>
 	<figcaption>The panel: breaker and supplies up top, terminal blocks and drivers below, everything routed through duct. My favorite deliverable of the whole project.</figcaption>
 </figure>
 
@@ -65,7 +81,10 @@ If the [electricity post](/blog/how-electricity-actually-works/) made fuses, bre
 The firmware is a state machine in the classic [sense → decide → act](/blog/the-loops-that-drive-your-car/) shape, written in C++ with **AccelStepper** handling motion profiles and the Servo library driving the gripper:
 
 <figure>
-	<img src="/images/gantry/state-machine.png" alt="Flowchart of the firmware: home system, check serial commands and emergency stop, detect object, then run pick-and-hold followed by a drop sequence in auto or manual mode, incrementing drop counters" width="1101" height="1200" loading="lazy" />
+	<picture>
+		<source srcset="/images/gantry/state-machine.webp" type="image/webp" />
+		<img src="/images/gantry/state-machine.png" alt="Flowchart of the firmware: home system, check serial commands and emergency stop, detect object, then run pick-and-hold followed by a drop sequence in auto or manual mode, incrementing drop counters" width="1101" height="1200" loading="lazy" />
+	</picture>
 	<figcaption>The control flow: home once, then loop — listen for commands, watch for an object, pick, drop, count, repeat.</figcaption>
 </figure>
 

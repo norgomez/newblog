@@ -1,0 +1,29 @@
+---
+import type { GetStaticPaths } from 'astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostList from '../../components/PostList.astro';
+import { allPosts, tagIndex } from '../../lib/posts';
+
+export const getStaticPaths = (async () => {
+	const posts = await allPosts();
+	return tagIndex(posts).map(({ tag, posts: tagged }) => ({
+		params: { tag },
+		props: { tag, posts: tagged },
+	}));
+}) satisfies GetStaticPaths;
+
+const { tag, posts } = Astro.props;
+---
+
+<BaseLayout
+	title={tag}
+	description={`Posts tagged ${tag} — ${posts.length} on the blog.`}
+>
+	<header class="page-header">
+		<p class="meta"><a class="back-link" href="/tags/">← All topics</a></p>
+		<h1>{tag}</h1>
+		<p class="meta">{posts.length} {posts.length === 1 ? 'post' : 'posts'}</p>
+	</header>
+
+	<PostList posts={posts} />
+</BaseLayout>
