@@ -2,6 +2,7 @@
 title: 'Project: Teaching a Computer to See Shapes — No Neural Networks Allowed'
 description: 'A 1987 theory of human vision, a watershed algorithm, and four classification rules — plus the rotated square that humbled all of them.'
 pubDate: 2026-07-29
+tags: [software, computing]
 project:
   cover: /images/rbc/labeled-blocks.jpg
   blurb: A classical computer-vision pipeline that finds and classifies 2D shapes with no neural networks — HSV preprocessing, watershed segmentation, and rule-based geometry.
@@ -13,7 +14,10 @@ How hard can it be to tell a square from a triangle? Every neural network demo t
 The answer to "how hard can it be": delightfully, instructively hard. But first, the part that worked.
 
 <figure>
-	<img src="/images/rbc/labeled-blocks.jpg" alt="A photo of four wooden blocks — green cylinder, yellow triangle, red rectangle, blue square — each outlined in red and labeled by the system with its classification, area, perimeter, and aspect ratio" width="754" height="634" loading="lazy" />
+	<picture>
+		<source srcset="/images/rbc/labeled-blocks.webp" type="image/webp" />
+		<img src="/images/rbc/labeled-blocks.jpg" alt="A photo of four wooden blocks — green cylinder, yellow triangle, red rectangle, blue square — each outlined in red and labeled by the system with its classification, area, perimeter, and aspect ratio" width="754" height="634" loading="lazy" />
+	</picture>
 	<figcaption>The pipeline's output on real blocks: every shape found, outlined, measured, and correctly named — including the metrics it used to decide.</figcaption>
 </figure>
 
@@ -32,7 +36,10 @@ Raw photos are hostile to geometry — shadows, uneven light, color noise. The p
 3. **Binarize + despeckle.** Otsu's method picks the black/white threshold automatically, and an area-opening pass deletes any blob smaller than ~20 pixels — noise, dust, JPEG crumbs.
 
 <figure>
-	<img src="/images/rbc/hsv-channels.jpg" alt="The same photo of blocks shown as three grayscale images: the hue channel, saturation channel, and value channel" width="654" height="272" loading="lazy" />
+	<picture>
+		<source srcset="/images/rbc/hsv-channels.webp" type="image/webp" />
+		<img src="/images/rbc/hsv-channels.jpg" alt="The same photo of blocks shown as three grayscale images: the hue channel, saturation channel, and value channel" width="654" height="272" loading="lazy" />
+	</picture>
 	<figcaption>One photo, three opinions: the hue, saturation, and value channels. Splitting them is what lets the pipeline shrug off shadows.</figcaption>
 </figure>
 
@@ -53,7 +60,10 @@ L = watershed(D);      % flood; ridge lines between pools = object boundaries
 The `imhmin` line matters more than it looks: without it, every minor dimple in a shape becomes its own basin and the watershed happily shatters one square into confetti. Suppressing shallow minima is the difference between segmentation and vandalism.
 
 <figure>
-	<img src="/images/rbc/watershed-segmentation.png" alt="Side-by-side montage: eight black shapes on white, and the same image after watershed segmentation with each shape colored differently" width="1200" height="341" loading="lazy" />
+	<picture>
+		<source srcset="/images/rbc/watershed-segmentation.webp" type="image/webp" />
+		<img src="/images/rbc/watershed-segmentation.png" alt="Side-by-side montage: eight black shapes on white, and the same image after watershed segmentation with each shape colored differently" width="1200" height="341" loading="lazy" />
+	</picture>
 	<figcaption>Watershed output: each separated region gets its own label (shown as color) — even where shapes touch.</figcaption>
 </figure>
 
@@ -88,14 +98,20 @@ Four rules, three thresholds, zero training. On clean scenes — separated shape
 **Exhibit A: the 45° square.** Rotate a square and the system calls it a triangle — *consistently*. The bug is beautiful once you see it: the bounding box is **axis-aligned**, so a square rotated 45° sits inside a box roughly twice its area. Extent drops from ~1.0 to ~0.5, sails under the 0.65 triangle threshold, and the rule cascade never gets a chance to reconsider. The classifier isn't seeing the shape; it's seeing the shape's *shadow on the pixel grid's axes* — precisely the viewpoint-dependence Biederman's theory says real perception avoids.
 
 <figure>
-	<img src="/images/rbc/rotated-fail.png" alt="Several rotated squares outlined and incorrectly labeled as triangles, alongside an upright square and a circle labeled correctly" width="809" height="537" loading="lazy" />
+	<picture>
+		<source srcset="/images/rbc/rotated-fail.webp" type="image/webp" />
+		<img src="/images/rbc/rotated-fail.png" alt="Several rotated squares outlined and incorrectly labeled as triangles, alongside an upright square and a circle labeled correctly" width="809" height="537" loading="lazy" />
+	</picture>
 	<figcaption>Exhibit A: every rotated square confidently labeled “Triangle.” The upright square and the circle, unbothered, classify fine.</figcaption>
 </figure>
 
 **Exhibit B: the imperfect circle.** A real wooden cylinder, photographed slightly squashed, pushed P²/A just past the ±2 tolerance — and fell through the cascade to the default label. The system printed "Rectangle" on a circle with total confidence.
 
 <figure>
-	<img src="/images/rbc/circle-fail.jpg" alt="A stack of blocks where a green circular block is outlined and mislabeled as a rectangle" width="532" height="620" loading="lazy" />
+	<picture>
+		<source srcset="/images/rbc/circle-fail.webp" type="image/webp" />
+		<img src="/images/rbc/circle-fail.jpg" alt="A stack of blocks where a green circular block is outlined and mislabeled as a rectangle" width="532" height="620" loading="lazy" />
+	</picture>
 	<figcaption>Exhibit B: one slightly imperfect circle, one confidently wrong label. Fixed thresholds don't do “almost.”</figcaption>
 </figure>
 

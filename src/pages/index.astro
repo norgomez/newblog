@@ -1,12 +1,10 @@
 ---
-import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PostList from '../components/PostList.astro';
 import { SITE_DESCRIPTION } from '../consts';
+import { allPosts, seriesIndex } from '../lib/posts';
 
-const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
+const posts = await allPosts();
 
 const seriesBlurbs: Record<string, string> = {
 	'Maker Basics':
@@ -17,12 +15,12 @@ const seriesBlurbs: Record<string, string> = {
 		'The hardware AI actually runs on — from a single switch up to a datacenter, and why moving numbers costs more than crunching them.',
 };
 
-const seriesCards = Object.entries(seriesBlurbs).map(([name, blurb]) => {
-	const parts = posts
-		.filter((post) => post.data.series?.name === name)
-		.sort((a, b) => (a.data.series?.part ?? 0) - (b.data.series?.part ?? 0));
-	return { name, blurb, count: parts.length, first: parts[0] };
-});
+const seriesCards = seriesIndex(posts).map(({ name, posts: parts }) => ({
+	name,
+	blurb: seriesBlurbs[name] ?? '',
+	count: parts.length,
+	first: parts[0],
+}));
 ---
 
 <BaseLayout>
@@ -43,6 +41,8 @@ const seriesCards = Object.entries(seriesBlurbs).map(([name, blurb]) => {
 		</div>
 	</section>
 
-	<p class="meta section-label">All writing</p>
+	<p class="meta section-label">
+		All writing · <a href="/tags/">browse by topic</a>
+	</p>
 	<PostList posts={posts} />
 </BaseLayout>

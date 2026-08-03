@@ -2,6 +2,7 @@
 title: 'Actuators: How Code Moves the Physical World'
 description: 'Motors, servos, steppers, and solenoids — what each one is actually good at, and the one rule that keeps them from frying your board.'
 pubDate: 2026-07-16
+tags: [electronics, motors, control]
 series:
   name: 'Maker Basics'
   part: 5

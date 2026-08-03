@@ -2,6 +2,7 @@
 title: 'How GPS Knows Where You Are'
 description: 'Atomic clocks, a lot of geometry, and a correction for Einstein — the engineering inside the most casually magical thing you own.'
 pubDate: 2026-07-20
+tags: [signals, sensors, computing]
 ---
 
 Your phone finds its position anywhere on Earth, for free, using satellites it never talks to. That last part surprises people: **GPS is receive-only.** The satellites don't know you exist. Twenty-four-plus spacecraft simply broadcast, nonstop, and any receiver that can hear four of them can compute where it is. Here's how that trick actually works.

@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Search" description="Search every post on the blog.">
+	<header class="page-header">
+		<h1>Search</h1>
+		<p class="meta">Full text, every post</p>
+	</header>
+
+	<div id="search" class="search-host"></div>
+
+	<noscript>
+		<p class="intro" style="border-bottom: 0;">
+			Search needs JavaScript. You can browse <a href="/tags/">by topic</a> or
+			<a href="/series/">by series</a> instead.
+		</p>
+	</noscript>
+
+	<script is:inline>
+		// Pagefind's bundle is produced by `pagefind --site dist` *after* astro
+		// build, so it does not exist under `astro dev`. It is also a classic
+		// script that assigns window.PagefindUI rather than an ES module with
+		// exports — hence a script tag rather than a dynamic import.
+		(function () {
+			var host = document.getElementById('search');
+			if (!host) return;
+
+			function fallback() {
+				host.innerHTML =
+					'<p class="meta">The search index is generated at build time — run ' +
+					'<code>npm run build</code>, then <code>npm run preview</code>, ' +
+					'to try it locally.</p>';
+			}
+
+			var css = document.createElement('link');
+			css.rel = 'stylesheet';
+			css.href = '/pagefind/pagefind-ui.css';
+			document.head.appendChild(css);
+
+			var s = document.createElement('script');
+			s.src = '/pagefind/pagefind-ui.js';
+			s.onload = function () {
+				if (typeof window.PagefindUI !== 'function') return fallback();
+				new window.PagefindUI({
+					element: '#search',
+					showSubResults: true,
+					showImages: false,
+					excerptLength: 25,
+					resetStyles: false,
+				});
+			};
+			s.onerror = fallback;
+			document.head.appendChild(s);
+		})();
+	</script>
+</BaseLayout>

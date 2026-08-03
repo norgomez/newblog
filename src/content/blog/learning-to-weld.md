@@ -2,6 +2,7 @@
 title: 'Learning to Weld: Controlled Lightning for Beginners'
 description: 'Welding is the only joint that turns two pieces of metal into one piece — here is what the arc actually is, which process to learn first, and how to practice.'
 pubDate: 2026-08-01
+tags: [fabrication, tools]
 ---
 
 Every other way of joining metal is an arrangement. Bolts clamp, rivets pinch, adhesives grip, and [solder](/blog/tools-everyone-should-own/) sticks two parents together with a third, weaker metal. Welding is different in kind: the parent metals themselves melt, flow together, and freeze as **one continuous piece**. Done right, the joint isn't attached to the part — it *is* the part, with crystals of metal growing straight across where the boundary used to be.

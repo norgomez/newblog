@@ -2,6 +2,7 @@
 title: 'What an AI Agent Actually Is (and When You Should Not Build One)'
 description: 'A language model can only produce text. Give that text somewhere to land and a loop to run in, and it becomes action — that is the whole idea, and everything else is plumbing.'
 pubDate: 2026-08-03
+tags: [ai, software]
 ---
 
 "Agent" is the most overloaded word in software right now. It gets used for a chatbot with a search box, for a scripted pipeline that calls a model three times, and for something that refactors a codebase overnight while you sleep. Those are three genuinely different machines, and the difference between them is not how smart the model is. It's who decides what happens next.

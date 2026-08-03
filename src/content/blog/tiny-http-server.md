@@ -2,6 +2,7 @@
 title: 'Writing a Tiny HTTP Server in Python'
 description: 'Sixty lines of raw sockets to demystify every web framework you will ever use.'
 pubDate: 2026-05-30
+tags: [software]
 ---
 
 HTTP feels like magic until you realize it's just text over a TCP socket. The fastest way to internalize that is to write a server with no framework at all — raw sockets, by hand. What follows fits in one file and handles real browser requests.

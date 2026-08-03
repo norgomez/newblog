@@ -2,6 +2,7 @@
 title: 'Why 0.1 + 0.2 ≠ 0.3 (and Why Your Computer Is Right)'
 description: 'Floating point is not broken — it is a brilliant compromise that every programmer eventually has to make peace with.'
 pubDate: 2026-07-19
+tags: [software, computing]
 ---
 
 Open any JavaScript console and type the most famous arithmetic bug that isn't one:

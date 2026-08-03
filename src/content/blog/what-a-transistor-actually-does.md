@@ -2,6 +2,7 @@
 title: 'What a Transistor Actually Does'
 description: 'A switch with no moving parts, controlled by a voltage instead of a finger. Everything else — logic, memory, arithmetic, the entire machine — is that one component repeated a hundred billion times.'
 pubDate: 2026-08-04
+tags: [electronics, computing, hardware]
 series:
   name: 'Inside the Machine'
   part: 1

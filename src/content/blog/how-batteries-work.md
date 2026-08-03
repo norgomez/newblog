@@ -2,6 +2,7 @@
 title: 'Batteries: Why They Work and Why They Die'
 description: 'A battery is a chemical reaction that desperately wants to happen, held apart — with the electrons forced to commute through your device.'
 pubDate: 2026-07-25
+tags: [electricity]
 series:
   name: 'Under the Hood'
   part: 4

@@ -2,6 +2,7 @@
 title: 'Why Chips Run Hot: The Limit Behind Every Other Limit'
 description: 'Clock speeds stopped climbing twenty years ago and never restarted. Not because we ran out of transistors — because everything a computer does turns into heat, and getting rid of it is the hardest problem on the die.'
 pubDate: 2026-08-07
+tags: [computing, hardware, thermodynamics]
 series:
   name: 'Inside the Machine'
   part: 4
