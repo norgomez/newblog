@@ -1,9 +1,14 @@
 ---
 title: 'The Link Budget: Why Your Radio Reaches Exactly As Far As It Does'
 description: 'Radio range is not a property of a radio. It is the outcome of an accounting exercise you can do on one sheet of paper — and the only number that matters at the end is the one you have left over.'
-pubDate: 2026-08-10
+pubDate: 2026-08-14
 tags: [signals, electronics]
+series:
+  name: 'Over the Air'
+  part: 5
 ---
+
+[Part 4](/blog/modulation/) got information onto the wave. This post asks the blunter question: will any of it arrive?
 
 Two radios sit on a bench. Same size, same antenna, same battery. One reliably works at 500 metres and the other at 30 kilometres.
 
@@ -120,3 +125,5 @@ Once the numbers are written down, the ranking of your options stops being a mat
 None of this is difficult mathematics. It's addition, once you've agreed to count in decibels. But it converts a question that sounds like it needs experience — *will this link hold?* — into one sheet of arithmetic with a number at the bottom.
 
 And that number is never "yes." It's how much room you have before the answer becomes no.
+
+One caveat, and it's the subject of [the next part](/blog/line-of-sight/): every term above assumes a clear path. The moment a hill gets involved, the arithmetic stops applying.

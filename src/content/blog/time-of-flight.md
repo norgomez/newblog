@@ -1,9 +1,14 @@
 ---
 title: 'Time of Flight: The Only Way Anything Knows How Far'
 description: 'Radar, sonar, lidar, the parking sensor on your bumper and the satellites overhead are all running the same trick — send something at a known speed and time the return. Everything else is a consequence of what you sent.'
-pubDate: 2026-08-11
+pubDate: 2026-08-16
 tags: [signals, sensors]
+series:
+  name: 'Over the Air'
+  part: 7
 ---
+
+Every part of this series so far has treated a radio wave as something you put a *message* on. This last one is about the other use entirely — sending a wave in order to time it.
 
 A bat, an air-traffic radar, the ultrasonic sensor I bolted to a [pick-and-place gantry](/blog/pick-and-place-gantry/), a self-driving car's lidar, and the [GPS receiver](/blog/how-gps-works/) in your pocket are all solving the same problem, and — remarkably — all solving it the same way.
 
@@ -79,3 +84,5 @@ Read the second column and the rest of the table explains itself. Cheap and shor
 There's something satisfying about how little of this is separate knowledge. A submarine and a self-driving car are not related technologies in any ordinary sense, but strip both back and you find a pulse, a clock, and a division by two.
 
 The only real question a designer answers is what to send — and once that's chosen, the cost, the reach, the resolution and the difficulty are all decided for them.
+
+Which is where this series lands. [A shaken charge](/blog/what-a-radio-wave-is/), [a rod cut to a quarter wavelength](/blog/antennas/), [a plot of spectrum](/blog/the-spectrum/), [three properties to vary](/blog/modulation/), [an accounting sheet](/blog/the-link-budget/), and [a clear horizon](/blog/line-of-sight/). Put them together and you can either say something, or find out how far away something is — and it turns out those are the same machine.
