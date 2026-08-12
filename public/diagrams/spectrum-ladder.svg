@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" font-family="Menlo, Consolas, monospace">
+	<text x="16" y="28" fill="#8a8680" font-size="11">going up the spectrum: more bandwidth, smaller antennas, shorter reach</text>
+	<text x="196" y="50" fill="#8a8680" font-size="8.5" opacity="0.85">bar length ≈ how much data the band can carry →</text>
+	
+	<text x="16" y="80" fill="#8a8680" font-size="10">VLF · 20 kHz</text>
+	<text x="126" y="80" fill="#8a8680" font-size="9" opacity="0.8">λ 15 km</text>
+	<rect x="196" y="68" width="44" height="13" fill="#b5714a" opacity="0.37"/>
+	<text x="247" y="79" fill="#8a8680" font-size="9" opacity="0.85">submarines</text>
+	<text x="16" y="106" fill="#8a8680" font-size="10">AM · 1 MHz</text>
+	<text x="126" y="106" fill="#8a8680" font-size="9" opacity="0.8">λ 300 m</text>
+	<rect x="196" y="94" width="89" height="13" fill="#b5714a" opacity="0.45"/>
+	<text x="292" y="105" fill="#8a8680" font-size="9" opacity="0.85">broadcast, skip</text>
+	<text x="16" y="132" fill="#8a8680" font-size="10">FM · 100 MHz</text>
+	<text x="126" y="132" fill="#8a8680" font-size="9" opacity="0.8">λ 3 m</text>
+	<rect x="196" y="120" width="154" height="13" fill="#b5714a" opacity="0.57"/>
+	<text x="357" y="131" fill="#8a8680" font-size="9" opacity="0.85">radio, aviation</text>
+	<text x="16" y="158" fill="#8a8680" font-size="10">900 MHz</text>
+	<text x="126" y="158" fill="#8a8680" font-size="9" opacity="0.8">λ 33 cm</text>
+	<rect x="196" y="146" width="204" height="13" fill="#b5714a" opacity="0.66"/>
+	<text x="407" y="157" fill="#8a8680" font-size="9" opacity="0.85">telemetry</text>
+	<text x="16" y="184" fill="#8a8680" font-size="10">2.4 GHz</text>
+	<text x="126" y="184" fill="#8a8680" font-size="9" opacity="0.8">λ 12.5 cm</text>
+	<rect x="196" y="172" width="239" height="13" fill="#b5714a" opacity="0.72"/>
+	<text x="442" y="183" fill="#8a8680" font-size="9" opacity="0.85">wifi, control</text>
+	<text x="16" y="210" fill="#8a8680" font-size="10">5.8 GHz</text>
+	<text x="126" y="210" fill="#8a8680" font-size="9" opacity="0.8">λ 5 cm</text>
+	<rect x="196" y="198" width="264" height="13" fill="#b5714a" opacity="0.77"/>
+	<text x="467" y="209" fill="#8a8680" font-size="9" opacity="0.85">video</text>
+	<text x="16" y="236" fill="#8a8680" font-size="10">60 GHz</text>
+	<text x="126" y="236" fill="#8a8680" font-size="9" opacity="0.8">λ 5 mm</text>
+	<rect x="196" y="224" width="284" height="13" fill="#b5714a" opacity="0.80"/>
+	<text x="487" y="235" fill="#8a8680" font-size="9" opacity="0.85">short-range data</text>
+	<path d="M16,268 H624" stroke="#8a8680" stroke-width="1" opacity="0.3" fill="none"/>
+	<text x="320" y="284" fill="#8a8680" font-size="9.5" text-anchor="middle">low: bends round hills, goes through walls, travels far — but carries little</text>
+	<text x="320" y="296" fill="#b5714a" font-size="9.5" text-anchor="middle">high: enormous capacity — but stopped by a leaf</text>
+</svg>
