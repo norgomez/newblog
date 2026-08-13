@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" font-family="Menlo, Consolas, monospace">
+	<defs>
+		<marker id="tr-arr" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+			<path d="M0,0 L10,5 L0,10 z" fill="#b5714a" />
+		</marker>
+	</defs>
+
+	<text x="320" y="28" fill="#8a8680" font-size="11" text-anchor="middle">Each step supplies the heat for the next — which is the whole problem</text>
+
+	<!-- stage boxes -->
+	<g stroke="#8a8680" stroke-width="1.5" fill="none">
+		<rect x="120" y="52" width="350" height="36" rx="5" />
+		<rect x="120" y="96" width="350" height="36" rx="5" />
+		<rect x="120" y="170" width="350" height="36" rx="5" />
+		<rect x="120" y="214" width="350" height="36" rx="5" />
+	</g>
+
+	<!-- temperatures -->
+	<g fill="#8a8680" font-size="11" text-anchor="end">
+		<text x="106" y="74">~90 °C</text>
+		<text x="106" y="118">~140 °C</text>
+		<text x="106" y="192">~210 °C</text>
+		<text x="106" y="236">&gt;600 °C</text>
+	</g>
+
+	<!-- stage descriptions -->
+	<g fill="#8a8680" font-size="11">
+		<text x="136" y="74">SEI layer breaks down, cell begins self-heating</text>
+		<text x="136" y="118">separator melts — internal short circuit</text>
+		<text x="136" y="192">cathode gives up oxygen — its own oxidiser</text>
+		<text x="136" y="236">venting, flame, and the neighbours warming up</text>
+	</g>
+
+	<!-- arrows between stages -->
+	<g stroke="#b5714a" stroke-width="1.6" fill="none">
+		<path d="M295,88 V92" marker-end="url(#tr-arr)" />
+		<path d="M295,132 V148" marker-end="url(#tr-arr)" />
+		<path d="M295,206 V210" marker-end="url(#tr-arr)" />
+	</g>
+
+	<!-- point of no return -->
+	<text x="295" y="152" fill="#b5714a" font-size="11" text-anchor="middle">point of no return</text>
+	<path d="M120,160 H470" stroke="#b5714a" stroke-width="1" stroke-dasharray="4 4" fill="none" />
+
+	<!-- heat-source brackets -->
+	<g stroke="#8a8680" stroke-width="1.2" fill="none">
+		<path d="M500,52 H492 V132 H500" />
+		<path d="M500,170 H492 V250 H500" />
+	</g>
+	<g fill="#8a8680" font-size="10">
+		<text x="508" y="88">heat you</text>
+		<text x="508" y="102">put in</text>
+		<text x="508" y="206">heat it makes</text>
+		<text x="508" y="220">itself</text>
+	</g>
+
+	<text x="320" y="286" fill="#8a8680" font-size="11" text-anchor="middle">Coolant and foam act on the arrows, not on the chemistry</text>
+</svg>
