@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" font-family="Menlo, Consolas, monospace">
+	<defs>
+		<marker id="sd-arr" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+			<path d="M0,0 L10,5 L0,10 z" fill="#b5714a" />
+		</marker>
+		<marker id="sd-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+			<path d="M0,0 L10,5 L0,10 z" fill="#8a8680" />
+		</marker>
+	</defs>
+
+	<text x="320" y="28" fill="#8a8680" font-size="11" text-anchor="middle">The guard is not the barrier — the distance is</text>
+
+	<!-- approach -->
+	<text x="34" y="132" fill="#8a8680" font-size="11">reaching hand</text>
+	<path d="M40,148 H210" stroke="#b5714a" stroke-width="1.8" fill="none" marker-end="url(#sd-arr)" />
+
+	<!-- light curtain plane -->
+	<text x="234" y="80" fill="#8a8680" font-size="11" text-anchor="middle">light curtain</text>
+	<path d="M234,90 V206" stroke="#8a8680" stroke-width="1.5" stroke-dasharray="5 4" fill="none" />
+	<g fill="#8a8680">
+		<circle cx="234" cy="104" r="2.5" />
+		<circle cx="234" cy="130" r="2.5" />
+		<circle cx="234" cy="156" r="2.5" />
+		<circle cx="234" cy="182" r="2.5" />
+	</g>
+
+	<!-- hazard -->
+	<rect x="470" y="112" width="104" height="72" rx="5" stroke="#8a8680" stroke-width="1.5" fill="none" />
+	<text x="522" y="153" fill="#8a8680" font-size="11" text-anchor="middle">hazard</text>
+
+	<!-- dimension -->
+	<g stroke="#8a8680" stroke-width="1">
+		<path d="M234,214 V244" />
+		<path d="M470,192 V244" />
+	</g>
+	<path d="M234,236 H470" stroke="#8a8680" stroke-width="1" fill="none" marker-start="url(#sd-dim)" marker-end="url(#sd-dim)" />
+	<text x="352" y="228" fill="#8a8680" font-size="11" text-anchor="middle">S — minimum safety distance</text>
+
+	<!-- formula -->
+	<text x="320" y="270" fill="#b5714a" font-size="13" text-anchor="middle">S = K × T + C</text>
+	<text x="320" y="290" fill="#8a8680" font-size="10" text-anchor="middle">K = 2000 mm/s approach speed · T = your measured stopping time · C = reach allowance</text>
+</svg>
